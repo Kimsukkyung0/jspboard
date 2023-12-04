@@ -19,7 +19,7 @@
 <body>
 <h1>Lorem</h1>
 <h2 class="a">Ipsum</h2>
-<h2 class="b">Dolor</h3>
+<h3 class="b">Dolor</h3>
     <button id="cut">Cut</button> <button id="paste">Paste</button>
 </body>
 </html>
