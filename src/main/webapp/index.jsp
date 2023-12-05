@@ -9,12 +9,13 @@
 </head>
 <body>
 <h1>환영합니다!</h1>
-<h2 class="a">아무튼 환영합니다 index.jsp 파일입니다 당신은 어떤파일이 열린지 궁금하시겠죠 뭐가뭔지모르니까ㅏ..</h2>
-<h3 class="b"> Either way anyway Welcom입니다</h3>
-<a href="/">방명록작성</a>
+<h2 class="a">index> home.jsp 로 바꿔도 이걸 먼저 스캔할까 ?>아니었습니다</h2>
+<h3 class="b"> Either way anyway Welcome입니다</h3>
+<a href="/cs/notice">뭔가 누르기</a>
     <button id="cut">Cut</button> <button id="paste">Paste</button>
 
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 </html>
+<script></script>

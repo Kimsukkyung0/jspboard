@@ -10,19 +10,25 @@
 
     <!-- MySQL dataSource -->
 <!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >-->
-<!--        <property name="driverClassName" value="${app.jdbc.driverClassName}"/>-->
-<!--        <property name="url" value="${app.jdbc.url}"/>-->
-<!--        <property name="username" value="${app.jdbc.username}"/>-->
-<!--        <property name="password" value="${app.jdbc.password}"/>-->
+<!--        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="green502"/>-->
 <!--    </bean>-->
 
 
 <!--&lt;!&ndash;  DB -  rollback, transactional 등의 설정용&ndash;&gt;-->
-
 <!--    &lt;!&ndash;    property ref 이름을 통해 상단읩 db설정과 연결됨 &ndash;&gt;-->
 <!--    <tx:annotation-driven />-->
 <!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
 <!--        <property name="dataSource" ref="dataSource"/>-->
+<!--    </bean>-->
+
+<!--    ibatis 설정용인것 같은데 일단 복사해둠-->
+<!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--        <property name="configLocation" value="classpath:sqlmap-mybatis-config.xml"/>-->
+<!--        <property name="mapperLocations" value="classpath*:sqlmap/**/*.xml"/>-->
 <!--    </bean>-->
 
     <context:annotation-config/>

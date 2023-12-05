@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bdTs0010">
+    <insert id="insBoardPost">
+        INSERT INTO j_board
+        SET title = #{bd_num},
+            ctnt = #{ctnt},
+            writer= #{writer}
+    </insert>
+
+    <select id="postView">
+        SELECT bd_num, title, ctnt, writer, REG_DTM, hits
+        FROM j_board
+        WHERE bd_num = #{bd_num}
+    </select>
+</mapper>
