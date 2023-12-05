@@ -1,4 +1,4 @@
-package com.green.cm;
+package com.green.jspboard.cm;
 
 import java.sql.Timestamp;
 

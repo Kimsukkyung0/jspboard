@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>jspboard</title
+    <title>jspboard</title>
 
 </head>
 <body>
