@@ -22,6 +22,7 @@ public class bdTs0010Ctr {
     @RequestMapping(value="bd", method={RequestMethod.GET, RequestMethod.POST})
     public int wrtPost(HttpServletRequest request, HttpServletResponse response, Model model)throws Exception{
 
+        return 1;
     }
 
 }
