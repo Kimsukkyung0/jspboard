@@ -9,20 +9,21 @@
 ">
 
     <!-- MySQL dataSource -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
-        <property name="driverClassName" value="${app.jdbc.driverClassName}"/>
-        <property name="url" value="${app.jdbc.url}"/>
-        <property name="username" value="${app.jdbc.username}"/>
-        <property name="password" value="${app.jdbc.password}"/>
-    </bean>
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >-->
+<!--        <property name="driverClassName" value="${app.jdbc.driverClassName}"/>-->
+<!--        <property name="url" value="${app.jdbc.url}"/>-->
+<!--        <property name="username" value="${app.jdbc.username}"/>-->
+<!--        <property name="password" value="${app.jdbc.password}"/>-->
+<!--    </bean>-->
 
-<!--  DB -  rollback, transactional 등의 설정용-->
 
-    <!--    property ref 이름을 통해 상단읩 db설정과 연결됨 -->
-    <tx:annotation-driven />
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+<!--&lt;!&ndash;  DB -  rollback, transactional 등의 설정용&ndash;&gt;-->
+
+<!--    &lt;!&ndash;    property ref 이름을 통해 상단읩 db설정과 연결됨 &ndash;&gt;-->
+<!--    <tx:annotation-driven />-->
+<!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--        <property name="dataSource" ref="dataSource"/>-->
+<!--    </bean>-->
 
     <context:annotation-config/>
     <context:component-scan base-package="com.green.jspboard"/>
