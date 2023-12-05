@@ -9,10 +9,10 @@
 </head>
 <body>
 <h1>환영합니다!</h1>
-<h2 class="a">index> home.jsp 로 바꿔도 이걸 먼저 스캔할까 ?>아니었습니다</h2>
+<h1>게시판입니다!</h1>
+<h2 class="a">게시판입니다!</h2>
 <h3 class="b"> Either way anyway Welcome입니다</h3>
-<a href="/cs/notice">뭔가 누르기</a>
-    <button id="cut">Cut</button> <button id="paste">Paste</button>
+<a href="/cs/notice">게시글쓰기</a>
 
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
