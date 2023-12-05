@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>jdbc resource</comment>
+    <!-- 로컬환경개발용 -->
+    <entry key="app.jdbc.driverClassName">net.sf.log4jdbc.sql.jdbcapi.DriverSpy</entry>
+    <entry key="app.jdbc.url">jdbc:mysql://localhost:3306/useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8</entry>
+    <entry key="app.jdbc.username">root</entry>
+    <entry key="app.jdbc.password">green502</entry>
+</properties>
