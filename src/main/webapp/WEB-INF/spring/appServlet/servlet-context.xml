@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--<annotation-driven/>-->
+<!--컨트롤러가 모여있는 패키지를 지정할 것 .-->
+
+
 <beans:beans xmlns:beans="http://www.springframework.org/schema/beans">
-
-
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+<!--    특정경로에 있는 파일을 초반에 스캔하도록 설정해둠 -->
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/" />
         <beans:property name="suffix" value=".jsp" />
         <beans:property name="contentType" value="text/html; charset=UTF-8"/>
     </beans:bean>
-
 </beans:beans>
+
+<!--<context:component-scan base-package="java.com.green.jspboard.board.ctr"/>-->
+<!--        &lt;!&ndash;컨트롤러 메서드에서 반환하는 문자열 앞 뒤에 붙일 경로 정보를 세팅함 (사실 뭔말인지 모르겠음)&ndash;&gt;-->

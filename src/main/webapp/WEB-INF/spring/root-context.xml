@@ -17,12 +17,12 @@
     </bean>
 
 
-<!--&lt;!&ndash;  DB -  rollback, transactional 등의 설정용&ndash;&gt;-->
-<!--    &lt;!&ndash;    property ref 이름을 통해 상단읩 db설정과 연결됨 &ndash;&gt;-->
-<!--    <tx:annotation-driven />-->
-<!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-<!--        <property name="dataSource" ref="dataSource"/>-->
-<!--    </bean>-->
+<!--  DB -  rollback, transactional 등의 설정용-->
+    <!--    property ref 이름을 통해 상단읩 db설정과 연결됨 -->
+    <tx:annotation-driven />
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
 <!--    ibatis 설정용인것 같은데 일단 복사해둠-->
 <!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
