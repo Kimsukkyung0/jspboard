@@ -21,7 +21,7 @@
     <!--    property ref 이름을 통해 상단읩 db설정과 연결됨 -->
     <tx:annotation-driven />
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="DataSource" ref="dataSource"/>
     </bean>
 
 <!--    ibatis 설정용인것 같은데 일단 복사해둠-->

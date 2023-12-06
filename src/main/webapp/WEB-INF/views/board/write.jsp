@@ -31,15 +31,15 @@
                 </thead>
                 <tr>
                     <td>제목</td>
-                    <td><input type="text" name="title"></td>
+                    <td><input type="text" name="title" id="title" placeholder="최대 30자"></td>
                 </tr>
                 <tr>
                     <td>내용</td>
-                    <td><input type="text" name="contents"></td>
+                    <td><input type="text" name="contents" id="contents" placeholder="최대 약 200자"></td>
                 </tr>
                 <tr>
                     <td>작성자</td>
-                    <td><input type="text" name="writer"></td>
+                    <td><input type="text" name="writer"id="writer"></td>
                 </tr>
                 <tr>
                    <td> <button type="submit">submit</button></td>
