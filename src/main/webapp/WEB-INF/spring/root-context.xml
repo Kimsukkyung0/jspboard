@@ -9,12 +9,12 @@
 ">
 
     <!-- MySQL dataSource -->
-<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >-->
-<!--        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
-<!--        <property name="url" value="jdbc:mysql://localhost:3306/useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>-->
-<!--        <property name="username" value="root"/>-->
-<!--        <property name="password" value="green502"/>-->
-<!--    </bean>-->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" >
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306"/>
+        <property name="username" value="root"/>
+        <property name="password" value="green502"/>
+    </bean>
 
 
 <!--&lt;!&ndash;  DB -  rollback, transactional 등의 설정용&ndash;&gt;-->
