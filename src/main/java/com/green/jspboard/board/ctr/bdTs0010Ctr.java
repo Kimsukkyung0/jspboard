@@ -16,7 +16,8 @@ import java.util.HashMap;
 @Controller
 public class bdTs0010Ctr {
         //TODO map의 사용
-
+        //1.원격호출 가능한 프로그램으로 등록 (빈등록)
+    //2.url 과 메서드를 연결(requestmapping)
     @Resource(name="bdTs0010Svc")
     private bdTs0010Svc svc;
 

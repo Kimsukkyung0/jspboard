@@ -22,19 +22,30 @@
             </tr>
         </table>
 
-        <form action="/cs/notice" method="post" role="form" autocomplete="off">
-            <p>
-                <label for="title">title</label><input type="text" id="title" name="title">
-            </p>
-            <p>
-                <label for="content">contents</label><textarea name="content" id="content" cols="30" rows="10"></textarea>
-            </p>
-            <p>
-                <label for="writer">writer</label><input type="text" id="writer">
-            </p>
-            <p>
-                <button type="submit">submit</button>
-            </p>
+        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>
+        <form method="post" role="form" autocomplete="off" action="write.jsp">
+            <table>
+                <thead>
+                <h2>게시판 글쓰기</h2>
+                </thead>
+                <tr>
+                    <td>제목</td>
+                    <td><input type="text" name="title"></td>
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td><input type="text" name="contents"></td>
+                </tr>
+                <tr>
+                    <td>작성자</td>
+                    <td><input type="text" name="writer"></td>
+                </tr>
+                <tr>
+                   <td> <button type="submit">submit</button></td>
+                    <td><button type="reset" value="취소">취소</button></td>
+                </tr>
+            </table>
+
 
         </form>
 
