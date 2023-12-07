@@ -1,68 +1,75 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%--<%@ taglib uri="http://java.sun.com/jsp/d" prefix="jsp"%>--%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <!doctype html>
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>jspboard-writing</title>
+    <title>jspboard</title>
     <meta charset="utf-8" http-equiv="Content-Type" content="text/html;">
     <meta name="viewport" content="width=device-width", initial-scale="1">
+    <link rel="stylesheet" type="text/css" href="${path}/css/styles.css" />
 
 </head>
 <body>
     <div class="wrap">
         <header>
-            <h1>게시판글쓰기</h1>
+            <div class="headerwrap">
+                <h1>문의하기</h1>
+                <table>
+                    <tr>
+                        <td>처음화면</td>
+                        <td>글쓰기</td>
+                        <td>로그인</td>
+                    </tr>
+                </table>
+            </div>
         </header>
-        <table>
-            <tr>
-            <td>처음화면</td>
-            <td>글쓰기</td>
-            <td>로그인</td>
-            </tr>
-        </table>
+        <main>
+            <div class="main-wrap">
 
 <%--        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>--%>
-        <form action=".result.jsp" method="post" role="form" autocomplete="off">
-            <table>
-                <thead>
-                <h2>게시판 글쓰기</h2>
-                </thead>
-                <tr>
-                    <td>제목</td>
-                    <td><input type="text" name="title" id="title" placeholder="최대 30자"></td>
-                </tr>
-                <tr>
-                    <td>내용</td>
-                    <td><input type="text" name="contents" id="contents" placeholder="최대 약 200자"></td>
-                </tr>
-                <tr>
-                    <td>작성자</td>
-                    <td><input type="text" name="writer"id="writer"></td>
-                </tr>
-                <tr>
-                    <td>작성자이메일</td>
-                    <td><input type="text" name="email"id="mail"></td>
-                </tr>
-                <tr>
-                    <td>숫자1</td>
-                    <td><input type="number" name="num1"id="num1"></td>
-                </tr>
-                <tr>
-                    <td>숫자2</td>
-                    <td><input type="number" name="num2"id="num2"></td>
-                </tr>
-                <tr>
-                   <td> <button type="submit" class="btn-submit">submit</button></td>
-                    <td><button type="reset" value="취소">취소</button></td>
-                </tr>
-            </table>
+                <form action=".result.jsp" method="post" role="form" autocomplete="off">
+                    <table>
+                        <thead>
+                        <h2>게시판 글쓰기</h2>
+                        </thead>
+                        <tr>
+                            <td>제목</td>
+                            <td><input type="text" name="title" id="title" placeholder="최대 30자"></td>
+                        </tr>
+                        <tr>
+                            <td>내용</td>
+                            <td><input type="text" name="contents" id="contents" placeholder="최대 약 200자"></td>
+                        </tr>
+                        <tr>
+                            <td>작성자</td>
+                            <td><input type="text" name="writer"id="writer"></td>
+                        </tr>
+                        <tr>
+                            <td>작성자이메일</td>
+                            <td><input type="text" name="email"id="mail"></td>
+                        </tr>
+                        <tr>
+                            <td>숫자1</td>
+                            <td><input type="number" name="num1"id="num1"></td>
+                        </tr>
+                        <tr>
+                            <td>숫자2</td>
+                            <td><input type="number" name="num2"id="num2"></td>
+                        </tr>
+                        <tr>
+                           <td> <button type="submit" class="btn-submit">submit</button></td>
+                            <td><button type="reset" value="취소">취소</button></td>
+                        </tr>
+                    </table>
 
 
-        </form>
+                </form>
+            </div>
+        </main>
 
         <footer>
             <p>2023.12.5 게시판</p>
