@@ -64,12 +64,14 @@
                             <td><input type="number" name="num2"id="num2"></td>
                         </tr>
                     </table>
-                </form:form>
 
-                <div class="buttons">
+                    <div class="buttons">
                         <button type="submit" id="btn-submit">submit</button>
                         <button type="reset" value="취소">취소</button>
-                </div>
+                    </div>
+                </form:form>
+
+
             </div>
 
         </main>
@@ -138,23 +140,23 @@
                     , "num2":jsnum2.val()
                 }
             }
-            $.post({
-                crossOrigin:true
-                , url:"http://localhost:8090/cs/notice"
-                , type:"post"
-                , data : JSON.stringify(params)
-                , success:function (data){
-                    alert("게시판에 글을 올린것 같기도하고 ?")
-                },
-                error:function (data,status,err){
-                    var element=$(document.body);
-
-                    alert("에러다 휴먼");
-            },
-                complete : function (){
-                    alert("complete를 지나간다")
-                }
-                });
+            // $.post({
+            //     crossOrigin:true
+            //     , url:"http://localhost:8090/cs/notice"
+            //     , type:"post"
+            //     , data : JSON.stringify(params)
+            //     , success:function (data){
+            //         alert("게시판에 글을 올린것 같기도하고 ?")
+            //     },
+            //     error:function (data,status,err){
+            //         var element=$(document.body);
+            //
+            //         alert("에러다 휴먼");
+            // },
+            //     complete : function (){
+            //         alert("complete를 지나간다")
+            //     }
+            //     });
 
         })
     </script>
