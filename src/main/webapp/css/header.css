@@ -1,21 +1,29 @@
-header{
-    width: 100%;
-}
-header .headerwrap{
-    height: 40px;
-    background-color: beige;
-}
+/*header{*/
+/*    width:100%;*/
+/*    !* background-color: grey; *!*/
+/*    height: 80px;*/
+/*    position: fixed;*/
+/*}*/
 
-header .headerwrap .page-title{
-    font-size:25px;
-    font-weight: bolder;
-}
+
+/*header .header-wrap .page-title{*/
+/*    display: inline-block;*/
+/*    font-size:25px;*/
+/*    font-weight: bolder;*/
+/*    align-items: center;*/
+
+/*}*/
 header table{
     float:left;
     margin: 0 auto;
 }
 
 main {
+    background-color: #0c5460;
     width: 100%;
+}
+
+main .main-wrap{
     height: 250px;
+
 }

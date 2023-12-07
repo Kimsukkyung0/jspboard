@@ -1,6 +1,7 @@
 package com.green.board_test.board.svc;
 
 import com.green.board_test.board.dao.bdTs0010DaoIF;
+import com.green.model.WritingForm;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,7 +14,7 @@ public class bdTs0010Svc implements bdTs0010SvcIF{
     private bdTs0010DaoIF bdTs0010Dao;
 
     @Override
-    public String writingNotice(HttpServletRequest request) throws Exception{
+    public String writingNotice(WritingForm form) throws Exception{
         return "하하!";
     };
 

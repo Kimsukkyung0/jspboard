@@ -16,8 +16,8 @@
 <body>
     <div class="wrap">
         <header>
-            <div class="headerwrap">
-                <h1 class="page-title">문의하기</h1>
+            <div class="header-wrap">
+<%--                <h1 class="page-title">문의하기</h1>--%>
 <%--                <table>--%>
 <%--                    <tr>--%>
 <%--                        <td>처음화면</td>--%>
@@ -31,7 +31,7 @@
             <div class="main-wrap">
 
 <%--        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>--%>
-                <form action="result.jsp" method="post" role="form" autocomplete="off">
+                <form action="<c:url value="http://localhost:8090/cs/notice"/>" method="post" role="form" autocomplete="off">
                     <table>
                         <thead>
                         게시판 글쓰기
@@ -61,7 +61,7 @@
                             <td><input type="number" name="num2"id="num2"></td>
                         </tr>
                         <tr>
-                           <td> <button type="submit" class="btn-submit">submit</button></td>
+                           <td> <button type="submit" id="btn-submit">submit</button></td>
                             <td><button type="reset" value="취소">취소</button></td>
                         </tr>
                     </table>
@@ -78,7 +78,7 @@
     </div>
 
     <script type="text/javascript">
-        $(".btn-submit").click(function(){
+        $("#btn-submit").on("click",function(){
             var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
             //메일형식을 확인하는 정규식
             var jsTitle = $("#title");
@@ -112,7 +112,7 @@
             //모든게 null이 아니고 이메일 유효성 검사도 통과했을때
             //아직 숫자는 옵션
 
-            if(confirm("전송하시겠습니가?")){
+            if(confirm("json으로 전송하시겠습니가?")){
                 var params = "";
                 //JSON형식으로 변환하는 작업쓰
                 params={
@@ -124,23 +124,23 @@
                     , "num2":jsnum2.val()
                 }
             }
-            $.post({
-                crossOrigin:true
-                , url:"http://localhost:8090/cs/notice"
-                , type:"post"
-                , data : JSON.stringify(params)
-                , success:function (data){
-                    alert("게시판에 글을 올린것 같기도하고 ?")
-                },
-                error:function (data,status,err){
-                    var element=$(document.body);
-
-                    alert("에러다 휴먼");
-            },
-                complete : function (){
-                    alert("complete를 지나간다")
-                }
-                });
+            // $.post({
+            //     crossOrigin:true
+            //     , url:"http://localhost:8090/cs/notice"
+            //     , type:"post"
+            //     , data : JSON.stringify(params)
+            //     , success:function (data){
+            //         alert("게시판에 글을 올린것 같기도하고 ?")
+            //     },
+            //     error:function (data,status,err){
+            //         var element=$(document.body);
+            //
+            //         alert("에러다 휴먼");
+            // },
+            //     complete : function (){
+            //         alert("complete를 지나간다")
+            //     }
+            //     });
 
         })
     </script>

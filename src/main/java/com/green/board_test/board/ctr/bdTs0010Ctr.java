@@ -21,11 +21,12 @@ public class bdTs0010Ctr {
     private bdTs0010Svc svc;
 
     @RequestMapping(value = "/cs/notice", method = {RequestMethod.POST})//우선적으로 crud중 c먼저 하기
-    public String writingNotice(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-        WritingForm form = (WritingForm) request.getAttribute("postForm");
-        System.out.println(form.toString());
+    public String writingNotice(HttpServletRequest request, HttpServletResponse response,WritingForm form, Model model) throws Exception {
+        svc.writingNotice(form);
+//        WritingForm form = (WritingForm) request.getAttribute("postForm")
+
 //        String result = svc.writingNotice(request);
-        return "1";
+        return "result";
     }
 
 }

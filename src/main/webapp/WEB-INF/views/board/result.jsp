@@ -31,8 +31,8 @@
         </thead>
         <tr>
             <td>제목</td>
-            <td><jsp:getProperty name="title" property="title"/></td>
-            <td><%=title%></td>
+            <td>"title의 getproperty값" <jsp:getProperty name="title" property="title"/></td>
+            <td><%=title + " request.getParameter값 을 통한 값 받아오기"%></td>
         </tr>
 
         <tr>
@@ -53,8 +53,7 @@
             <td><%=sumResult%></td>
         </tr>
         <tr>
-            <td> <button type="submit">submit</button></td>
-            <td><button type="reset" value="취소">취소</button></td>
+            <td><button type="reset" value="back">돌아가기</button></td>
         </tr>
     </table>
 </body>
