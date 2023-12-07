@@ -21,7 +21,7 @@ public class bdTs0010Ctr {
     @Resource(name = "bdTs0010Svc")
     private bdTs0010Svc svc;
 
-    @RequestMapping(value = "/cs/notice", method = {RequestMethod.POST})//우선적으로 crud중 c먼저 하기
+    @RequestMapping(value = "/cs/notice", method = {RequestMethod.POST, RequestMethod.GET})//우선적으로 crud중 c먼저 하기
     public ModelAndView writingNotice(HttpServletRequest request, HttpServletResponse response,WritingForm form, Model model) throws Exception {
         svc.writingNotice(form);
         ModelAndView mv = new ModelAndView();
