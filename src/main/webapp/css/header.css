@@ -2,12 +2,12 @@ header{
     width: 100%;
 }
 header .headerwrap{
-    height: 120px;
+    height: 40px;
     background-color: beige;
 }
 
-header .headerwrap .h2{
-    font-size:40px;
+header .headerwrap .page-title{
+    font-size:25px;
     font-weight: bolder;
 }
 header table{

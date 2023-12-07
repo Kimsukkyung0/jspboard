@@ -4,7 +4,15 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+<!--    최초로 WAS가 구동될때 각종 설정을 정의해주는 파일 -->
+<!--    web.xml을 통해 각 xml파일들과 연결됨 -->
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/root-context.xml</param-value>
+    </context-param>
+
+        <!--    서블릿 요청 처리는 servlet-context.xml로 처리한다-->
     <servlet>
         <servlet-name>appServlet</servlet-name>
         <!-- Spring MVC에서 제공하고 있는 기본 서블릿을 지정한다. -->
@@ -24,11 +32,8 @@
     </servlet-mapping>
 
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/spring/root-context.xml</param-value>
-    </context-param>
 
+        <!--모든 서블릿과 필터가 공유하는 스프링컨테이너를 생성-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>

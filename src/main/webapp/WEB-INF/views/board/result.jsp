@@ -32,6 +32,7 @@
         <tr>
             <td>제목</td>
             <td><jsp:getProperty name="title" property="title"/></td>
+            <td><%=title%></td>
         </tr>
 
         <tr>

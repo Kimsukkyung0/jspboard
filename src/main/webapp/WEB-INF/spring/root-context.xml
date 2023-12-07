@@ -4,7 +4,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 ">
 
@@ -16,6 +15,17 @@
         <property name="password" value="green502"/>
     </bean>
 
+    <!--    sqlMapclient 설정-->
+    <bean id="sqlMapClientTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSessionFactory"/>
+    </bean>
+
+    <!--myBatis 설정-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:sqlmap/sql-mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath*:sqlmap/board/*.xml"/>
+    </bean>
 
 <!--  DB -  rollback, transactional 등의 설정용-->
     <!--    property ref 이름을 통해 상단읩 db설정과 연결됨 -->
@@ -23,6 +33,7 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="DataSource" ref="dataSource"/>
     </bean>
+
 
 <!--    ibatis 설정용인것 같은데 일단 복사해둠-->
 <!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->

@@ -17,14 +17,14 @@
     <div class="wrap">
         <header>
             <div class="headerwrap">
-                <h1>문의하기</h1>
-                <table>
-                    <tr>
-                        <td>처음화면</td>
-                        <td>글쓰기</td>
-                        <td>로그인</td>
-                    </tr>
-                </table>
+                <h1 class="page-title">문의하기</h1>
+<%--                <table>--%>
+<%--                    <tr>--%>
+<%--                        <td>처음화면</td>--%>
+<%--                        <td>글쓰기</td>--%>
+<%--                        <td>로그인</td>--%>
+<%--                    </tr>--%>
+<%--                </table>--%>
             </div>
         </header>
         <main>
@@ -34,7 +34,7 @@
                 <form action=".result.jsp" method="post" role="form" autocomplete="off">
                     <table>
                         <thead>
-                        <h2>게시판 글쓰기</h2>
+                        게시판 글쓰기
                         </thead>
                         <tr>
                             <td>제목</td>
@@ -116,14 +116,31 @@
                 var params = "";
                 //JSON형식으로 변환하는 작업쓰
                 params={
-                    title:jsTitle.val()
-                    , contents:jsContents.val()
-                    , writer:jswriter.val()
-                    , mail:jswritersMail.val()
-                    , num1:jsnum1.val()
-                    , num2:jsnum2.val()
+                    "title":jsTitle.val()
+                    , "contents":jsContents.val()
+                    , "writer":jswriter.val()
+                    , "mail":jswritersMail.val()
+                    , "num1":jsnum1.val()
+                    , "num2":jsnum2.val()
                 }
             }
+            $.ajax({
+                crossOrigin:true
+                , url:"http://localhost:8090/test"
+                , type:"post"
+                , data : JSON.stringify(params)
+                , success:function (data){
+                    alert("게시판에 글을 올린것 같기도하고 ?")
+                },
+                error:function (data,status,err){
+                    var element=$(document.body);
+
+                    alert("에러다 휴먼");
+            },
+                complete : function (){
+                    alert("complete를 지나간다")
+                }
+                });
 
         })
     </script>

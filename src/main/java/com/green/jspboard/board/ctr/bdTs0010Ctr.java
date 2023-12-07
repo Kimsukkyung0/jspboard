@@ -17,14 +17,14 @@ import java.util.HashMap;
 
 @Controller
 public class bdTs0010Ctr {
-        //TODO map의 사용
-        //1.원격호출 가능한 프로그램으로 등록 (빈등록)
+    //TODO map의 사용
+    //1.원격호출 가능한 프로그램으로 등록 (빈등록)
     //2.url 과 메서드를 연결(requestmapping)
-    @Resource(name="bdTs0010Svc")
+    @Resource(name = "bdTs0010Svc")
     private bdTs0010Svc svc;
 
-    @RequestMapping(value="/cs/notice", method={RequestMethod.POST})//우선적으로 crud중 c먼저 하기
-    public String writingNotice(HttpServletRequest request, HttpServletResponse response, Model model)throws Exception{
+    @RequestMapping(value = "/cs/notice", method = {RequestMethod.POST})//우선적으로 crud중 c먼저 하기
+    public String writingNotice(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
         WritingForm form = (WritingForm) request.getAttribute("postForm");
         System.out.println(form.toString());
 //        String result = svc.writingNotice(request);
