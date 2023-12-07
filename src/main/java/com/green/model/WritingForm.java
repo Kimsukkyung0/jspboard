@@ -7,4 +7,5 @@ public class WritingForm {
     private String title;
     private String contents;
     private String writer;
+    private String writersMail;
 }

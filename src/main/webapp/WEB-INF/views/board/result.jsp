@@ -34,7 +34,7 @@
             <td>"title의 getproperty값" <jsp:getProperty name="title" property="title"/></td>
             <td><%=title + " request.getParameter값 을 통한 값 받아오기"%></td>
         </tr>
-
+  
         <tr>
             <td>내용</td>
 <%--            <td><jsp:getProperty name="contents" property="contents"/></td>--%>

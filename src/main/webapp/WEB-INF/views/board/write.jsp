@@ -88,7 +88,12 @@
             var jsnum1 = $("#num1");
             var jsnum2 = $("#num2");
 
-            if(jsTitle===""|| jsTitle===null){
+            console.log(regEmail)
+            console.log(jsTitle)
+            console.log(jsContents)
+            console.log(jswriter)
+
+            if(jsTitle==="" || jsTitle===null){
                 alert("제목을 입력해 주시죠?");
                 jsTitle.focus();
             }

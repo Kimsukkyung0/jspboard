@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -21,12 +22,25 @@ public class bdTs0010Ctr {
     private bdTs0010Svc svc;
 
     @RequestMapping(value = "/cs/notice", method = {RequestMethod.POST})//우선적으로 crud중 c먼저 하기
-    public String writingNotice(HttpServletRequest request, HttpServletResponse response,WritingForm form, Model model) throws Exception {
+    public ModelAndView writingNotice(HttpServletRequest request, HttpServletResponse response,WritingForm form, Model model) throws Exception {
         svc.writingNotice(form);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("result");
+        mv.addObject("title",form.getTitle());
+        mv.addObject("contents",form.getContents());
+        mv.addObject("writer",form.getWriter());
+        mv.addObject("mail",form.getWritersMail());
 //        WritingForm form = (WritingForm) request.getAttribute("postForm")
-
+        System.out.println(mv.getViewName());
 //        String result = svc.writingNotice(request);
-        return "result";
+
+        //JSP 서블릿 클래스는 doGet doPost 메서드가 존재했는데 여기서 model이 그 역할을 한다.
+        // Model : 데이터를 담는 그릇 역할, map 구조로 저장됨// key와 value로 구성
+        // model.addAttribute("변수명", 값)
+        return mv;
+
+        //result.jsp 파일로 연결된다고 함 . jsp에서 dispatcher객체로 forward한것과 같은역할.
+        //나머지경로는 servlet-context.xml에 설정됨
     }
 
 }
