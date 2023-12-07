@@ -1,4 +1,4 @@
-package com.green.jspboard.board.dao;
+package com.green.board_test.board.dao;
 
 import javax.servlet.http.HttpServletRequest;
 

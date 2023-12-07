@@ -1,4 +1,4 @@
-package com.green.jspboard.board.svc;
+package com.green.board_test.board.svc;
 
 import javax.servlet.http.HttpServletRequest;
 

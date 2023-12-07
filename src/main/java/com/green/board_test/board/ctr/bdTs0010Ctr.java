@@ -1,8 +1,7 @@
-package com.green.jspboard.board.ctr;
+package com.green.board_test.board.ctr;
 
 
-import com.green.jspboard.board.svc.bdTs0010Svc;
-import com.green.jspboard.cm.Cm;
+import com.green.board_test.board.svc.bdTs0010Svc;
 import com.green.model.WritingForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 @Controller
 public class bdTs0010Ctr {

@@ -1,4 +1,4 @@
-package com.green.jspboard.board.ctr;
+package com.green.board_test.board.ctr;
 
 
 import org.springframework.ui.Model;
@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class bdTs0020Ctr {

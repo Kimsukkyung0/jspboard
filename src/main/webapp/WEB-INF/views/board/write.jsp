@@ -31,7 +31,7 @@
             <div class="main-wrap">
 
 <%--        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>--%>
-                <form action=".result.jsp" method="post" role="form" autocomplete="off">
+                <form action="result.jsp" method="post" role="form" autocomplete="off">
                     <table>
                         <thead>
                         게시판 글쓰기
@@ -81,12 +81,12 @@
         $(".btn-submit").click(function(){
             var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
             //메일형식을 확인하는 정규식
-            var jsTitle = $(".title");
-            var jsContents = $(".contents");
-            var jswriter = $(".writer");
-            var jswritersMail=$(".email");
-            var jsnum1 = $(".num1");
-            var jsnum2 = $(".num2");
+            var jsTitle = $("#title");
+            var jsContents = $("#contents");
+            var jswriter = $("#writer");
+            var jswritersMail=$("#email");
+            var jsnum1 = $("#num1");
+            var jsnum2 = $("#num2");
 
             if(jsTitle===""|| jsTitle===null){
                 alert("제목을 입력해 주시죠?");
@@ -124,9 +124,9 @@
                     , "num2":jsnum2.val()
                 }
             }
-            $.ajax({
+            $.post({
                 crossOrigin:true
-                , url:"http://localhost:8090/test"
+                , url:"http://localhost:8090/cs/notice"
                 , type:"post"
                 , data : JSON.stringify(params)
                 , success:function (data){

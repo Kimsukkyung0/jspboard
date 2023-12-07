@@ -1,7 +1,6 @@
-package com.green.jspboard.board.svc;
+package com.green.board_test.board.svc;
 
-import com.green.jspboard.board.dao.bdTs0010DaoIF;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.green.board_test.board.dao.bdTs0010DaoIF;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

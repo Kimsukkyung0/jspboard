@@ -1,4 +1,4 @@
-package com.green.DB;
+package com.green.configs;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

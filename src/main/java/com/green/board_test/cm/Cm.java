@@ -1,4 +1,4 @@
-package com.green.jspboard.cm;
+package com.green.board_test.cm;
 
 import org.springframework.ui.Model;
 

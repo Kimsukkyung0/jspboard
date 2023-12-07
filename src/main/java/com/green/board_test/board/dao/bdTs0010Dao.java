@@ -1,10 +1,8 @@
-package com.green.jspboard.board.dao;
+package com.green.board_test.board.dao;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 

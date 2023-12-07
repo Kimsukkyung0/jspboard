@@ -1,4 +1,4 @@
-package com.green.DB;
+package com.green.configs;
 
 import junit.framework.TestCase;
 import org.junit.Test;
