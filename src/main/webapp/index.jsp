@@ -11,6 +11,9 @@
 
 </head>
 <body>
+    <div class="jsp_container">
+<%--        <jsp:include page="/WEB-INF/views/board/write.jsp"></jsp:include>--%>
+    </div>
     <nav class="navbar navbar-default">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed"
@@ -19,7 +22,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="write.jsp">게시판</a>
+            <p><jsp:forward page="WEB-INF/views/board/write.jsp"></jsp:forward></p>
+            <a class="navbar-brand" href="board/write.jsp">게시판</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"></div>
     </nav>
