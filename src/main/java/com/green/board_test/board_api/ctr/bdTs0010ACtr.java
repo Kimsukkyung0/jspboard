@@ -1,6 +1,8 @@
-package com.green.board_test.board.ctr;
+package com.green.board_test.board_api.ctr;
 
 
+import com.green.board_test.cm.Cm;
+import org.json.simple.JSONObject;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class bdTs0020Ctr {
+public class bdTs0010ACtr {
 
 
     @RequestMapping(value = "/api/cs/notice" , method = {RequestMethod.POST})
@@ -20,6 +22,9 @@ public class bdTs0020Ctr {
     public Map<String,Object> insertTest(HttpServletRequest req, Model model){
         HashMap<String, Object> dto = new HashMap<>();
         JSONObject jsonObject = new JSONObject(req.getParameter("JSON"));
+
+        dto = (HashMap<String, Object>) Cm.toMap(jsonObject);
+
 
         String title = req.getParameter("title");
         String requesturl =req.getRequestURI();

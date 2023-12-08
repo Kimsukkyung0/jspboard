@@ -1,7 +1,7 @@
 package com.green.board_test.board.ctr;
 
 
-import com.green.board_test.board.svc.bdTs0010Svc;
+import com.green.board_test.board_api.svc.bdTs0010Svc;
 import com.green.model.WritingForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class bdTs0010Ctr {
-    //TODO map의 사용
     //1.원격호출 가능한 프로그램으로 등록 (빈등록)
     //2.url 과 메서드를 연결(requestmapping)
     @Resource(name = "bdTs0010Svc")

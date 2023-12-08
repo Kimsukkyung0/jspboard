@@ -1,5 +1,8 @@
 package com.green.board_test.cm;
 
+import org.json.JSONException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.ui.Model;
 
 import javax.servlet.ServletContext;
@@ -8,7 +11,10 @@ import java.net.URLDecoder;
 import java.sql.Timestamp;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+
+import static java.util.stream.Collectors.toList;
 
 public class Cm {
 //custweb에서 간단하게 개발할때 사용할 수 있는 메서드 위주로 복사해오긔
@@ -120,6 +126,24 @@ public class Cm {
 
         return data;
     }
+
+
+//    public static Map<String, Object> toMap(JSONObject jsonObject) throws JSONException {
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        Iterator<String> keys = jsonObject.keys();
+//        while (keys.hasNext()) {
+//            String key = keys.next();
+//            Object value = jsonObject.get(key);
+//            if (value instanceof JSONArray) {
+//                value = toList((JSONArray) value);
+//            } else if (value instanceof JSONObject) {
+//                value = toMap((JSONObject) value);
+//            }
+//            map.put(key, value);
+//        }
+//        return map;
+//    }
+
 
 
 

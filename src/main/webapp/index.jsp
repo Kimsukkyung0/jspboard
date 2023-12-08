@@ -33,7 +33,7 @@
             <div class="main-wrap">
 
 <%--        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>--%>
-                <form:form action="cs/notice" method="post" role="form" autocomplete="off" >
+                <form:form action="/cs/notice" method="post" role="form" autocomplete="off" >
                     <table>
                         <thead>
                         게시판 글쓰기

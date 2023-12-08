@@ -1,4 +1,4 @@
-package com.green.board_test.board.dao;
+package com.green.board_test.board_api.dao;
 
 import com.green.model.WritingForm;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -6,17 +6,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.HashMap;
 
 
 @Repository
 @Qualifier("odCc0010Dao")
-public class bdTs0010Dao implements bdTs0010DaoIF{
+public class bdTs0010ADao implements bdTs0010ADaoIF {
 
     private DataSource dataSource;
     @Resource(name = "sqlMapClientTemplate")
