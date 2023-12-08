@@ -31,7 +31,7 @@ public class DbConnectionTest2 {
 //        }
 
         ApplicationContext ac = new GenericXmlApplicationContext("file:src/main/webapp/WEB-INF/spring/root-context.xml");
-        DataSource ds = ac.getBean(DataSource.class);
+        DataSource ds = (DataSource) ac.getBean("dataSource");
 
         Connection conn = ds.getConnection();
         System.out.println(conn);

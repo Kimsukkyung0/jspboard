@@ -85,7 +85,7 @@
 
     <script type="text/javascript">
         $("#btn-submit").on("click",function(){
-            var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            var regEmail = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
             //메일형식을 확인하는 정규식
             var jsTitle = $("#title");
             var jsContents = $("#contents");
@@ -119,11 +119,11 @@
                 jswritersMail.focus();
                 return false;
             }
-            // if(!regEmail.test(jswritersMail.val())){
-            //     alert("이메일형식에 맞게 입력해주세요.");
-            //     jswritersMail.focus();
-            //     return false;
-            // }
+            if(!regEmail.test(jswritersMail.val())){
+                alert("이메일형식에 맞게 입력해주세요.");
+                jswritersMail.focus();
+                return false;
+            }
             //모든게 null이 아니고 이메일 유효성 검사도 통과했을때
             //아직 숫자는 옵션
 

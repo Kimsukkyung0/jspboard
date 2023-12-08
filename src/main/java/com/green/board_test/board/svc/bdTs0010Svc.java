@@ -15,7 +15,7 @@ public class bdTs0010Svc implements bdTs0010SvcIF{
 
     @Override
     public String writingNotice(WritingForm form) throws Exception{
-        return "하하!";
+        return bdTs0010Dao.writingNotice(form);
     };
 
 }

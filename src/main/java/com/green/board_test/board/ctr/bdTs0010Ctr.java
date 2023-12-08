@@ -23,7 +23,7 @@ public class bdTs0010Ctr {
 
     @RequestMapping(value = "/cs/notice", method = {RequestMethod.POST, RequestMethod.GET})//우선적으로 crud중 c먼저 하기
     public ModelAndView writingNotice(HttpServletRequest request, HttpServletResponse response,WritingForm form, Model model) throws Exception {
-        svc.writingNotice(form);
+        String result = svc.writingNotice(form);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("result");
         mv.addObject("title",form.getTitle());
@@ -31,12 +31,8 @@ public class bdTs0010Ctr {
         mv.addObject("writer",form.getWriter());
         mv.addObject("mail",form.getWritersMail());
 //        WritingForm form = (WritingForm) request.getAttribute("postForm")
-        System.out.println("modelAndBiew : viewname : " + mv.getViewName());
 //        String result = svc.writingNotice(request);
-
-        //JSP 서블릿 클래스는 doGet doPost 메서드가 존재했는데 여기서 model이 그 역할을 한다.
-        // Model : 데이터를 담는 그릇 역할, map 구조로 저장됨// key와 value로 구성
-        // model.addAttribute("변수명", 값)
+        System.out.println(result);
         return mv;
 
     }
