@@ -17,6 +17,7 @@
 <!--서블렛한테controller클래스들을 찾기위해 기본적으로 스캔해야 하는 패키지를 알려준다-->
 
     <context:component-scan base-package="com.green.board_test.board" />
+    <context:component-scan base-package="com.green.board_test.board_api" />
 
 <!--    요청 url을 통해, 어떤 컨츄롤러와 매칭해야할지 검색하는 역할-->
 <!--    내부적으로 requestmapping handler mapping 과 requestmapping handleradapter를 구성함.-->

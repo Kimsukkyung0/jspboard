@@ -8,7 +8,7 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>jspboard</title>
+    <title>폼태그 테스트페이지</title>
     <meta charset="utf-8" http-equiv="Content-Type" content="text/html;">
     <meta name="viewport" content="width=device-width", initial-scale="1">
     <link rel="stylesheet" type="text/css" href="${path}/css/styles.css" />
@@ -21,7 +21,7 @@
 
                 <table class="title-nav">
                     <tr>
-                        <td><h1 class="page-title">문의하기</h1></td>
+                        <td><h1 class="page-title">폼태그test</h1></td>
                         <td>처음화면</td>
                         <td>글쓰기</td>
                         <td>로그인</td>
@@ -65,14 +65,14 @@
                     </table>
 
                     <div class="buttons">
-                        <button type="submit" id="btn btn-primary">등록</button>
-                        <button type="reset" id="btn btn-danger" value="취소">취소</button>
+                        <button type="submit" id="btn-submit">등록</button>
+                        <button type="reset" id="btn-cancel" value="취소">취소</button>
                     </div>
                 </form:form>
 
 
             </div>
-
+            <a href="${path}/cs/notice2"/> ajax테스트하러가기</a>
         </main>
     </div>
 <%--wrap--%>
@@ -139,25 +139,25 @@
                     , "num2":jsnum2.val()
                 }
             }
-            $.ajax({
-                crossOrigin:true
-                , url:"/api/cs/notice"
-                , type:"post"
-                , data : JSON.stringify(params)
-                , success:function (data){
-                    alert("게시판에 글을 올린것 같기도하고 ?")
-                },
-                error:function (data,status,err){
-                    var element=$(document.body);
+    <%--        $.ajax({--%>
+    <%--            crossOrigin:true--%>
+    <%--            , url:"/api/cs/notice"--%>
+    <%--            , type:"post"--%>
+    <%--            , data : JSON.stringify(params)--%>
+    <%--            , success:function (data){--%>
+    <%--                alert("게시판에 글을 올린것 같기도하고 ?")--%>
+    <%--            },--%>
+    <%--            error:function (data,status,err){--%>
+    <%--                var element=$(document.body);--%>
 
-                    alert("에러다 휴먼");
-            },
-                complete : function (){
-                    alert("complete를 지나간다")
-                }
-                });
+    <%--                alert("에러다 휴먼");--%>
+    <%--        },--%>
+    <%--            complete : function (){--%>
+    <%--                alert("complete를 지나간다")--%>
+    <%--            }--%>
+    <%--            });--%>
 
-        })
+    <%--    })--%>
     </script>
 
 

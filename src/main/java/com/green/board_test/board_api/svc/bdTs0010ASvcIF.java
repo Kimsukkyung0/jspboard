@@ -2,6 +2,9 @@ package com.green.board_test.board_api.svc;
 
 import com.green.model.WritingForm;
 
+import java.util.HashMap;
+
 public interface bdTs0010ASvcIF {
-    String writingNotice(WritingForm form) throws Exception;
+
+    String ajaxDbTest(HashMap<String,Object> params) throws Exception;
 }
