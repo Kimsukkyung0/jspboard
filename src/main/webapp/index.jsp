@@ -139,23 +139,23 @@
                     , "num2":jsnum2.val()
                 }
             }
-            // $.post({
-            //     crossOrigin:true
-            //     , url:"http://localhost:8090/cs/notice"
-            //     , type:"post"
-            //     , data : JSON.stringify(params)
-            //     , success:function (data){
-            //         alert("게시판에 글을 올린것 같기도하고 ?")
-            //     },
-            //     error:function (data,status,err){
-            //         var element=$(document.body);
-            //
-            //         alert("에러다 휴먼");
-            // },
-            //     complete : function (){
-            //         alert("complete를 지나간다")
-            //     }
-            //     });
+            $.ajax({
+                crossOrigin:true
+                , url:"/api/cs/notice"
+                , type:"post"
+                , data : JSON.stringify(params)
+                , success:function (data){
+                    alert("게시판에 글을 올린것 같기도하고 ?")
+                },
+                error:function (data,status,err){
+                    var element=$(document.body);
+
+                    alert("에러다 휴먼");
+            },
+                complete : function (){
+                    alert("complete를 지나간다")
+                }
+                });
 
         })
     </script>
