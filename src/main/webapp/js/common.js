@@ -1,5 +1,5 @@
-$.callAjax = function(pUrl, pObjFormId, pParamData, pType, pAsync, pCallbackSucFun, pCallbackErrFun) {
-    if($.isNull(pUrl)) {
+$.callAjax = function(pUrl, pParamData, pType) {
+    if ($.isNull(pUrl)) {
         alert("URL을 지정하세요.");
         return;
     }
@@ -7,79 +7,40 @@ $.callAjax = function(pUrl, pObjFormId, pParamData, pType, pAsync, pCallbackSucF
     var opId = $("meta[name='OP_ID']").attr("content");
     var baseUrl = $("meta[name='BASE_URL']").attr("content");
 
-    pUrl = baseUrl+pUrl;
-
-//	var objParams = {};
-//	if($.isNull(pParamData)) {
-//		if($.isNull(pObjFormId)) {
-//			objParams = null;
-//		} else {
-//			objParams = $("#" + pObjFormId).serialize();
-//		}
-//	} else {
-//		objParams = $.param(pParamData);
-//	}
-
-    if($.isNull(pParamData)) {
-        pParamData = {};
-    }
-
-//	pParamData.OP_ID = opId;
-
-//	if(parent.g_ViewId != undefined) {
-//		if(objParams == null) {
-//			objParams = "VIEW=" + parent.g_ViewId;
-//		} else {
-//			objParams = objParams + ("&VIEW=" + parent.g_ViewId);
-//		}
-//	}
+    pUrl = baseUrl + pUrl;
 
     $.ajax({
 //		headers: {
 //	        'Accept': 'application/json',
 //	        'Content-Type': 'application/json'
 //	    },
-        url : pUrl,
-        type : ($.isNull(pType)) ? "POST" : pType.toUpperCase(),
-        async : ($.isNull(pAsync)) ? true : pAsync,
-        data : 'CALL_ID='+$.makeCallid()+'&S_DTM='+js_yyyy_mm_dd_hh_mm_ss ()+'&OP_ID='+opId+'&JSON='+JSON.stringify(pParamData),
-        success : function(data) {
+        url: pUrl,
+        type: ($.isNull(pType)) ? "POST" : pType.toUpperCase(),
+        async: ($.isNull(pAsync)) ? true : pAsync,
+        data: 'CALL_ID=' + $.makeCallid() + '&S_DTM=' + js_yyyy_mm_dd_hh_mm_ss() + '&OP_ID=' + opId + '&JSON=' + JSON.stringify(pParamData),
+        success: function (data) {
 
-            if("S" != data.CD){
-                if($.isFunction(pCallbackErrFun)){
+            if ("S" != data.CD) {
+                if ($.isFunction(pCallbackErrFun)) {
                     pCallbackErrFun(data);
                 }
                 return data;
             }
 
-            if($.isFunction(pCallbackSucFun)){
-                if(data.CODE == '5000'){
+            if ($.isFunction(pCallbackSucFun)) {
+                if (data.CODE == '5000') {
                     location.reload();
-                }else{
+                } else {
                     pCallbackSucFun(data);
                 }
             }
         },
-        error : function(data, status, err) {
+        error: function (data, status, err) {
             var element = $(document.body);
             //alert("에러가 발생하였습니다. 관리자에게 문의하십시오.");
-
-            if($.isFunction(pCallbackErrFun)) {
-                pCallbackErrFun(data);
-            }
-        },
-        complete : function() {
         }
+
     });
-
-    if($.isNull(event)) return;
-
-    if(event.preventDefault) {
-        event.preventDefault();
-    } else {
-        event.returnValue = false;
-    }
-};
 
 /////////////////////////////////////////////////////////////////
 //ajax 호출 : 폼저장 또는 파일업로드에 사용.
@@ -93,3 +54,14 @@ $.callAjax = function(pUrl, pObjFormId, pParamData, pType, pAsync, pCallbackSucF
 //@param pCallbackSucFun ajax form submit 호출 성공 후 처리할 콜백함수
 //@param pReset ajax form submit 호출 성공 후 form reset여부(default : false)
 /////////////////////////////////////////////////////////////////
+
+
+    $.makeCallid = function () {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 40; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
+    }
+}

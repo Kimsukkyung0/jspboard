@@ -50,18 +50,18 @@
                         <td>작성자</td>
                         <td><input type="text" name="writer"id="writer"></td>
                     </tr>
-                    <tr>
-                        <td>작성자이메일</td>
-                        <td><input type="text" name="email"id="mail"></td>
-                    </tr>
-                    <tr>
-                        <td>숫자1</td>
-                        <td><input type="number" name="num1"id="num1"></td>
-                    </tr>
-                    <tr>
-                        <td>숫자2</td>
-                        <td><input type="number" name="num2"id="num2"></td>
-                    </tr>
+<%--                    <tr>--%>
+<%--                        <td>작성자이메일</td>--%>
+<%--                        <td><input type="text" name="email"id="mail"></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>숫자1</td>--%>
+<%--                        <td><input type="number" name="num1"id="num1"></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td>숫자2</td>--%>
+<%--                        <td><input type="number" name="num2"id="num2"></td>--%>
+<%--                    </tr>--%>
                 </table>
 
                 <div class="buttons">
@@ -138,23 +138,26 @@
             }
             console.log(params);
 
-            $.ajax({
-                crossOrigin: true
-                , url: "${path}/api/cs/notice"
-                , type: "POST"
-                , data: JSON.stringify(params)
-                , success: function (data) {
-                    alert(data + "게시글업로드 완료")
-                    //data 는 컨트롤러와 통신한 결과값을 담고 있음
-                    //현재 출력값 :Ok:게시글업로드 완료
-                    location.replace("${path}/cs/notice3")
-                },
-                error: function (data, status, err) {
-                    var element = $(document.body);
+            $.callAjax('${path}/api/cs/notice',  params, "post");
 
-                    alert(element + "에러다 휴먼ㅠㅠ");
-                }
-            });
+
+            <%--$.ajax({--%>
+            <%--    crossOrigin: true--%>
+            <%--    , url: "${path}/api/cs/notice"--%>
+            <%--    , type: "POST"--%>
+            <%--    , data: JSON.stringify(params)--%>
+            <%--    , success: function (data) {--%>
+            <%--        alert(data + "게시글업로드 완료")--%>
+            <%--        //data 는 컨트롤러와 통신한 결과값을 담고 있음--%>
+            <%--        //현재 출력값 :Ok:게시글업로드 완료--%>
+            <%--        location.replace("${path}/cs/notice3")--%>
+            <%--    },--%>
+            <%--    error: function (data, status, err) {--%>
+            <%--        var element = $(document.body);--%>
+
+            <%--        alert(element + "에러다 휴먼ㅠㅠ");--%>
+            <%--    }--%>
+            <%--});--%>
         }
     })
 </script>
