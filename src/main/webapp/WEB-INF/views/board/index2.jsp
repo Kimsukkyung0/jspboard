@@ -136,6 +136,8 @@
                 , "ctnt": jsContents.val()
                 , "writer": jswriter.val()
             }
+            console.log(params);
+
             $.ajax({
                 crossOrigin: true
                 , url: "${path}/api/cs/notice"
@@ -143,6 +145,8 @@
                 , data: JSON.stringify(params)
                 , success: function (data) {
                     alert(data + "게시글업로드 완료")
+                    //data 는 컨트롤러와 통신한 결과값을 담고 있음
+                    //현재 출력값 :Ok:게시글업로드 완료
                     location.replace("${path}/cs/notice3")
                 },
                 error: function (data, status, err) {

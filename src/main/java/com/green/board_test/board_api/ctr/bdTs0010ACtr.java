@@ -28,7 +28,11 @@ public class bdTs0010ACtr {
         System.out.println("user+className : "+OP_ID);
 
         HashMap<String, Object> params = Cm.cmRequestToMap(req,model,OP_ID);
-
+        System.out.println(params.size());
+        System.out.println(params.containsKey("title"));
+        for (int i = 0; i < params.size(); i++) {
+            System.out.println(params.get(i));
+        }
         try{
             if(params ==null){
                 params = new HashMap<>();
