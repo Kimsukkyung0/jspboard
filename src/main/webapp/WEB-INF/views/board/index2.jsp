@@ -133,20 +133,17 @@
             //JSON형식으로 변환하는 작업쓰
             params = {
                 "title": jsTitle.val()
-                , "contents": jsContents.val()
+                , "ctnt": jsContents.val()
                 , "writer": jswriter.val()
-                , "mail": jswritersMail.val()
-                , "num1": jsnum1.val()
-                , "num2": jsnum2.val()
             }
             $.ajax({
                 crossOrigin: true
-                , url: "/api/cs/notice"
+                , url: "${path}/api/cs/notice"
                 , type: "POST"
                 , data: JSON.stringify(params)
                 , success: function (data) {
                     alert(data + "게시글업로드 완료")
-                    location.replace("/cs/notice3")
+                    location.replace("${path}/cs/notice3")
                 },
                 error: function (data, status, err) {
                     var element = $(document.body);

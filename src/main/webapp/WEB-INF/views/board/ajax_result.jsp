@@ -17,7 +17,8 @@
 <body>
     <%request.setCharacterEncoding("UTF-8");%>
     <%String title = request.getParameter("title");
-        String contents = request.getParameter("contents");%>
+        String contents = request.getParameter("ctnt");
+        String writer = request.getParameter("writer");%>
 
     <table>
         <thead>
@@ -33,6 +34,12 @@
             <td>내용</td>
             <%--            <td><jsp:getProperty name="contents" property="contents"/></td>--%>
             <td><%=contents%></td>
+        </tr>
+
+        <tr>
+            <td>작성자</td>
+            <%--            <td><jsp:getProperty name="contents" property="contents"/></td>--%>
+            <td><%=writer%></td>
         </tr>
     </table>
 </body>
