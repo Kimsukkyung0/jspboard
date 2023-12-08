@@ -23,9 +23,15 @@ public class bdTs0010ACtr {
     @RequestMapping(value = "/api/cs/notice" , method = {RequestMethod.POST})
     @ResponseBody
     public String insertTest(HttpServletRequest req, Model model){
-        String OP_ID = Cm.startCtrMethod(req, getClass().getName());
+        //작업아이디 만드는 부분
         //결과 : USER+classname
+        String OP_ID = Cm.startCtrMethod(req, getClass().getName());
         System.out.println("user+className : "+OP_ID);
+        String title = req.getAttribute("title").toString();
+        System.out.println("리퀘스트에선 어떤값이 title:"+title);
+
+
+
 
         HashMap<String, Object> params = Cm.cmRequestToMap(req,model,OP_ID);
         System.out.println(params.size());

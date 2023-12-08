@@ -92,8 +92,6 @@
         var jsContents = $("#contents");
         var jswriter = $("#writer");
         var jswritersMail=$("#email");
-        var jsnum1 = $("#num1");
-        var jsnum2 = $("#num2");
 
         console.log(regEmail)
         console.log(jsTitle)
@@ -138,26 +136,26 @@
             }
             console.log(params);
 
-            $.callAjax('${path}/api/cs/notice',  params, "post");
+            <%--$.callAjax('${path}/api/cs/notice',  params, "post");--%>
 
 
-            <%--$.ajax({--%>
-            <%--    crossOrigin: true--%>
-            <%--    , url: "${path}/api/cs/notice"--%>
-            <%--    , type: "POST"--%>
-            <%--    , data: JSON.stringify(params)--%>
-            <%--    , success: function (data) {--%>
-            <%--        alert(data + "게시글업로드 완료")--%>
-            <%--        //data 는 컨트롤러와 통신한 결과값을 담고 있음--%>
-            <%--        //현재 출력값 :Ok:게시글업로드 완료--%>
-            <%--        location.replace("${path}/cs/notice3")--%>
-            <%--    },--%>
-            <%--    error: function (data, status, err) {--%>
-            <%--        var element = $(document.body);--%>
+            $.ajax({
+                crossOrigin: true
+                , url: "${path}/api/cs/notice"
+                , type: "POST"
+                , data: JSON.stringify({JSON:params})
+                , success: function (data) {
+                    alert(data + "게시글업로드 완료")
+                    //data 는 컨트롤러와 통신한 결과값을 담고 있음
+                    //현재 출력값 :Ok:게시글업로드 완료
+                    <%--location.replace("${path}/cs/notice3")--%>
+                },
+                error: function (data, status, err) {
+                    var element = $(document.body);
 
-            <%--        alert(element + "에러다 휴먼ㅠㅠ");--%>
-            <%--    }--%>
-            <%--});--%>
+                    alert(element + "에러다 휴먼ㅠㅠ");
+                }
+            });
         }
     })
 </script>
