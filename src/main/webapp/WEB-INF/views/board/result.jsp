@@ -19,10 +19,10 @@
     <%String title = request.getParameter("title");
         String contents = request.getParameter("contents");
         String writer = request.getParameter("writer");
-        int sumResult = Integer.parseInt(request.getParameter("num1")+request.getParameter("num2"));
+        int sumResult = Integer.parseInt(request.getParameter("num1"))+Integer.parseInt(request.getParameter("num2"));
         String writersMail = request.getParameter("mail");%>
-    <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"/>
-    <jsp:setProperty property="title" name="title" value='<%=request.getParameter("title") %>'/>
+    <jsp:useBean class="com.green.model.WritingForm" id="postForm"/>
+<%--    <jsp:setProperty property="title" name="title" value='<%=request.getParameter("title") %>'/>--%>
 <%--    <jsp:setProperty property="contents" name="contents" value='<%=request.getParameter("contents") %>'/>--%>
 <%--    <jsp:setProperty property="writer" name="writer" value='<%=request.getParameter("writer") %>'/>--%>
     <table>
@@ -31,7 +31,7 @@
         </thead>
         <tr>
             <td>제목</td>
-            <td>"title의 getproperty값" <jsp:getProperty name="title" property="title"/></td>
+<%--            <td>"title의 getproperty값" <jsp:getProperty name="title" property="title"/></td>--%>
             <td><%=title + " request.getParameter값 을 통한 값 받아오기"%></td>
         </tr>
   

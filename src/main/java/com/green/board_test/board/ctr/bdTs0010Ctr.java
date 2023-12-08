@@ -31,7 +31,7 @@ public class bdTs0010Ctr {
         mv.addObject("writer",form.getWriter());
         mv.addObject("mail",form.getWritersMail());
 //        WritingForm form = (WritingForm) request.getAttribute("postForm")
-        System.out.println(mv.getViewName());
+        System.out.println("modelAndBiew : viewname : " + mv.getViewName());
 //        String result = svc.writingNotice(request);
 
         //JSP 서블릿 클래스는 doGet doPost 메서드가 존재했는데 여기서 model이 그 역할을 한다.
@@ -39,8 +39,6 @@ public class bdTs0010Ctr {
         // model.addAttribute("변수명", 값)
         return mv;
 
-        //result.jsp 파일로 연결된다고 함 . jsp에서 dispatcher객체로 forward한것과 같은역할.
-        //나머지경로는 servlet-context.xml에 설정됨
     }
 
 }

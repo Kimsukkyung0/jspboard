@@ -12,7 +12,6 @@
     <meta charset="utf-8" http-equiv="Content-Type" content="text/html;">
     <meta name="viewport" content="width=device-width", initial-scale="1">
     <link rel="stylesheet" type="text/css" href="${path}/css/styles.css" />
-
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -66,8 +65,8 @@
                     </table>
 
                     <div class="buttons">
-                        <button type="submit" id="btn-submit">submit</button>
-                        <button type="reset" value="취소">취소</button>
+                        <button type="submit" id="btn btn-primary">등록</button>
+                        <button type="reset" id="btn btn-danger" value="취소">취소</button>
                     </div>
                 </form:form>
 
@@ -100,31 +99,31 @@
             console.log(jsContents)
             console.log(jswriter)
 
-            if(jsTitle==="" || jsTitle ===null){
+            if(jsTitle.val()==="" || jsTitle.val() ===null){
                 alert("제목을 입력해 주시죠?");
                 jsTitle.focus();
                 return false;
             }
-            if(jscontents===""|| jscontents===null){
+            if(jsContents.val()===""|| jsContents.val()===null){
                 alert("내용을 입력해 주시죠?");
                 jsContents.focus();
                 return false;
             }
-            if(jswriter===""|| jswriter===null){
+            if(jswriter.val()===""|| jswriter.val()===null){
                 alert("작성자 이름은요?");
                 jswriter.focus();
                 return false;
             }
-            if(jswritersMail===""|| jswritersMail===null){
+            if(jswritersMail.val()===""|| jswritersMail.val()===null){
                 alert("메일주소를 입력하세요!");
                 jswritersMail.focus();
                 return false;
             }
-            if(!regEmail.test(jswritersMail.val())){
-                alert("이메일형식에 맞게 입력해주세요.");
-                $("jswritersMail").focus();
-                return false;
-            }
+            // if(!regEmail.test(jswritersMail.val())){
+            //     alert("이메일형식에 맞게 입력해주세요.");
+            //     jswritersMail.focus();
+            //     return false;
+            // }
             //모든게 null이 아니고 이메일 유효성 검사도 통과했을때
             //아직 숫자는 옵션
 

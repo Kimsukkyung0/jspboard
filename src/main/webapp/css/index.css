@@ -10,24 +10,28 @@ header{
 header .header-wrap{
     width:80%;
     height:100%;
-    margin:0 auto;
+    text-align: center;
     display: inline-block;
+    margin: 0 auto;
 }
 
 header .header-wrap .page-title{
     font-size:25px;
     font-weight: bolder;
     align-items: center;
+    vertical-align:middle;
 
 }
 header .title-nav{
     width:500px;
     float:left;
-    margin: 0 auto;
+    margin-top: 30px;
+    vertical-align:middle;
 }
 
 main {
     width: 100%;
+
 }
 
 main .main-wrap{
@@ -35,5 +39,8 @@ main .main-wrap{
     width: 90%;
     margin: 0 auto;
     /*background-color: #0c5460;*/
+}
 
+main .main-wrap .buttons{
+    margin: 0 auto;
 }
