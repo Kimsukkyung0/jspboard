@@ -143,7 +143,7 @@
                 crossOrigin: true
                 , url: "${path}/api/cs/notice"
                 , type: "POST"
-                , data: JSON.stringify({JSON:params})
+                , data: JSON.stringify(params)
                 , success: function (data) {
                     alert(data + "게시글업로드 완료")
                     //data 는 컨트롤러와 통신한 결과값을 담고 있음
@@ -153,7 +153,7 @@
                 error: function (data, status, err) {
                     var element = $(document.body);
 
-                    alert(element + "에러다 휴먼ㅠㅠ");
+                    alert(element + "에러ㅠㅠ");
                 }
             });
         }
