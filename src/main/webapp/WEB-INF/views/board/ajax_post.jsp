@@ -33,7 +33,7 @@
         <div class="main-wrap">
 
             <%--        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>--%>
-            <form:form role="form" autocomplete="off" >
+            <form:form role="form" autocomplete="off" class="main_data">
                 <table>
                     <thead>
                     게시판 글쓰기
@@ -48,7 +48,7 @@
                     </tr>
                     <tr>
                         <td>작성자</td>
-                        <td><input type="text" name="writer"id="writer"></td>
+                        <td><input type="text" name="writer" id="writer"></td>
                     </tr>
 <%--                    <tr>--%>
 <%--                        <td>작성자이메일</td>--%>
@@ -78,7 +78,7 @@
 <%--wrap--%>
 
 <footer>
-    <a href="http://localhost:8090/jspboard_war_exploded/">form 테스트로 돌아가기</a>
+    <a href="/">form 테스트로 돌아가기</a>
     <p>2023.12.5 게시판</p>
 </footer>
 
@@ -86,14 +86,11 @@
 
 <script type="text/javascript">
     $("#btn-submit").on("click",function(){
-        var regEmail = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
         //메일형식을 확인하는 정규식
         var jsTitle = $("#title");
         var jsContents = $("#contents");
         var jswriter = $("#writer");
-        var jswritersMail=$("#email");
 
-        console.log(regEmail)
         console.log(jsTitle)
         console.log(jsContents)
         console.log(jswriter)
@@ -113,18 +110,7 @@
             jswriter.focus();
             return false;
         }
-        if(jswritersMail.val()===""|| jswritersMail.val()===null){
-            alert("메일주소를 입력하세요!");
-            jswritersMail.focus();
-            return false;
-        }
-        // if(!regEmail.test(jswritersMail.val())){
-        //     alert("이메일형식에 맞게 입력해주세요.");
-        //     jswritersMail.focus();
-        //     return false;
-        // }
-        //모든게 null이 아니고 이메일 유효성 검사도 통과했을때
-        //아직 숫자는 옵션
+
 
         if(confirm("json으로 전송하시겠습니가?")) {
             var params = "";
@@ -141,9 +127,11 @@
 
             $.ajax({
                 crossOrigin: true
-                , url: "${path}/api/cs/notice"
+                , url: "/api/cs/notice"
                 , type: "POST"
-                , data: JSON.stringify(params)
+                , data: "JSON="+JSON.stringify(params)
+                , contentType: "application/json; charset=utf-8"
+                , dataType: "text"
                 , success: function (data) {
                     alert(data + "게시글업로드 완료")
                     //data 는 컨트롤러와 통신한 결과값을 담고 있음
@@ -153,7 +141,7 @@
                 error: function (data, status, err) {
                     var element = $(document.body);
 
-                    alert(element + "에러ㅠㅠ");
+                    alert(element + "에러ㅠㅠ"+data);
                 }
             });
         }

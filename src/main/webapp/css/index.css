@@ -4,7 +4,7 @@
 
 header{
     width:100%;
-    /* background-color: grey; */
+     background-color: gainsboro;
     height: 80px;
 }
 header .header-wrap{
@@ -20,13 +20,15 @@ header .header-wrap .page-title{
     font-weight: bolder;
     align-items: center;
     vertical-align:middle;
-
+    margin: 0 auto;
 }
+
 header .title-nav{
     width:500px;
     float:left;
     margin-top: 30px;
     vertical-align:middle;
+
 }
 
 main {
@@ -40,7 +42,10 @@ main .main-wrap{
     margin: 0 auto;
     /*background-color: #0c5460;*/
 }
-
+main .main-wrap .main_data{
+    width: 50%;
+    margin:0 auto;
+}
 main .main-wrap .buttons{
     margin: 0 auto;
 }

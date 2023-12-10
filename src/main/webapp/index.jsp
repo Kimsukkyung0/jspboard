@@ -33,7 +33,7 @@
             <div class="main-wrap">
 
 <%--        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>--%>
-                <form:form action="/cs/notice" method="post" role="form" autocomplete="off" >
+                <form:form action="/cs/notice" method="post" role="form" autocomplete="off" class="main_data" >
                     <table>
                         <thead>
                         게시판 글쓰기
@@ -48,19 +48,19 @@
                         </tr>
                         <tr>
                             <td>작성자</td>
-                            <td><input type="text" name="writer"id="writer"></td>
+                            <td><input type="text" name="writer" id="writer"></td>
                         </tr>
                         <tr>
                             <td>작성자이메일</td>
-                            <td><input type="text" name="email"id="mail"></td>
+                            <td><input type="text" name="email" id="mail"></td>
                         </tr>
                         <tr>
                             <td>숫자1</td>
-                            <td><input type="number" name="num1"id="num1"></td>
+                            <td><input type="number" name="num1" id="num1"></td>
                         </tr>
                         <tr>
                             <td>숫자2</td>
-                            <td><input type="number" name="num2"id="num2"></td>
+                            <td><input type="number" name="num2" id="num2"></td>
                         </tr>
                     </table>
 
@@ -72,7 +72,7 @@
 
 
             </div>
-            <a href="${path}/cs/notice2"/> ajax테스트하러가기</a>
+            <a href="/cs/notice2"/> ajax테스트하러가기</a>
         </main>
     </div>
 <%--wrap--%>

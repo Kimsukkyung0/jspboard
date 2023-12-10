@@ -1,15 +1,12 @@
 package com.green.board_test.board.ctr;
 
 
-import com.green.board_test.board_api.svc.bdTs0010ASvc;
 import com.green.model.WritingForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,7 +22,7 @@ public class bdTs0010Ctr {
 
     @RequestMapping(value = "/cs/notice2", method = {RequestMethod.POST, RequestMethod.GET})//우선적으로 crud중 c먼저 하기
     public String ajaxTest2(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-        return "index2";
+        return "ajax_post";
     }
 
     @RequestMapping(value = "/cs/notice3", method = {RequestMethod.POST, RequestMethod.GET})//우선적으로 crud중 c먼저 하기

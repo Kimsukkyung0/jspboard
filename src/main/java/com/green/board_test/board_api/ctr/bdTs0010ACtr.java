@@ -3,6 +3,7 @@ package com.green.board_test.board_api.ctr;
 
 import com.green.board_test.board_api.svc.bdTs0010ASvc;
 import com.green.board_test.cm.Cm;
+import org.json.JSONObject;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,12 +27,10 @@ public class bdTs0010ACtr {
         //작업아이디 만드는 부분
         //결과 : USER+classname
         String OP_ID = Cm.startCtrMethod(req, getClass().getName());
-        String title = req.getAttribute("JSON").toString();
-        System.out.println("리퀘스트에선 어떤값이 title:"+title);
-
+        JSONObject jsonObj = new JSONObject(req.getParameter("JSON"));
+        System.out.println(jsonObj);
         HashMap<String, Object> params = Cm.cmRequestToMap(req,model,OP_ID);
-        System.out.println(params.size());
-        System.out.println(params.containsKey("title"));
+
         for (int i = 0; i < params.size(); i++) {
             System.out.println(params.get(i));
         }
