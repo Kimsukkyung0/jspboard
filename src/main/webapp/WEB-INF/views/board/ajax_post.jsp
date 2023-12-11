@@ -139,9 +139,8 @@
                     //현재 출력값 :Ok:게시글업로드 완료
                     <%--location.replace("${path}/cs/notice3")--%>
                 },
-                error: function (data, status, err) {
-                    var element = $(document.body);
-                    console.log( JSON.stringify(params)+"error");
+                error: function (request, err) {
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+err)
                     alert(element.val()+"에러ㅠㅠ");
                 }
             });
