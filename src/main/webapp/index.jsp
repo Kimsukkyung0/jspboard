@@ -72,7 +72,7 @@
 
 
             </div>
-            <a href="/cs/notice2"/> ajax테스트하러가기</a>
+            <a href="${path}/cs/notice2"> ajax테스트하러가기</a>
         </main>
     </div>
 <%--wrap--%>

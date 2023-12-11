@@ -126,10 +126,10 @@
 
 
             $.ajax({
-                crossOrigin: true
-                , url: "/api/cs/notice"
+                crossOrigin: false
+                , url: "${path}/api/cs/notice"
                 , type: "POST"
-                , data: "JSON="+JSON.stringify(params)
+                , data: JSON.stringify(params)
                 , contentType: "application/json; charset=utf-8"
                 , dataType: "text"
                 , success: function (data) {
@@ -141,7 +141,7 @@
                 error: function (data, status, err) {
                     var element = $(document.body);
 
-                    alert(element + "에러ㅠㅠ"+data);
+                    alert(element + "에러ㅠㅠ"+status+this.error);
                 }
             });
         }

@@ -27,14 +27,24 @@ public class bdTs0010ACtr {
         //작업아이디 만드는 부분
         //결과 : USER+classname
         String OP_ID = Cm.startCtrMethod(req, getClass().getName());
-        JSONObject jsonObj = new JSONObject(req.getParameter("JSON"));
-        System.out.println(jsonObj);
-        HashMap<String, Object> params = Cm.cmRequestToMap(req,model,OP_ID);
 
-        for (int i = 0; i < params.size(); i++) {
-            System.out.println(params.get(i));
-        }
+        //파라미터로 가져온 request 파싱작업
+        HashMap<String, Object> params = new HashMap<>();
+        String title = req.getParameter("title");
+
         try{
+            //테스트로 parameter 값을 받고 , 아무것도 들어있지 않을시 sql에 error 게시물 업로드 하기
+            if(title ==null) {
+                params.put("title","error");
+                params.put("ctnt","error");
+                params.put("writer","error");
+
+//            System.out.println(title);
+//             params = Cm.cmRequestToMap(req, model, OP_ID);
+//            for (int i = 0; i < params.size(); i++) {
+//                System.out.println(params.get(i));
+//            }
+        }
             if(params ==null){
                 params = new HashMap<>();
             }params.put("OP_ID",OP_ID);
