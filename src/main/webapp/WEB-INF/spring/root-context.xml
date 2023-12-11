@@ -29,6 +29,8 @@
         <property name="configLocation" value="classpath:sqlmap/sql-mybatis-config.xml"/>
         <property name="mapperLocations" value="classpath*:sqlmap/board/*.xml"/>
     </bean>
+<!--     	<bean id="errorLogger" class="ubs.fw.exception.ErrorLogger" />-->
+
 
 <!--  DB -  rollback, transactional 등의 설정용-->
     <!--    property ref 이름을 통해 상단읩 db설정과 연결됨 -->
