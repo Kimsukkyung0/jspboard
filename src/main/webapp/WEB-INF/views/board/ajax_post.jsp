@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <title>jspboard</title>
     <meta charset="utf-8" http-equiv="Content-Type" content="text/html;">
-    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="${path}/css/styles.css" />
 </head>
 <body>
@@ -33,7 +33,7 @@
         <div class="main-wrap">
 
             <%--        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>--%>
-            <form:form role="form" autocomplete="off" class="main_data">
+          <form class="main_data">
                 <table>
                     <thead>
                     게시판 글쓰기
@@ -63,18 +63,18 @@
 <%--                        <td><input type="number" name="num2"id="num2"></td>--%>
 <%--                    </tr>--%>
                 </table>
-
+          </form>
                 <div class="buttons">
                     <button type="submit" id="btn-submit">등록</button>
                     <button type="reset" id="btn btn-danger" value="취소">취소</button>
                 </div>
-            </form:form>
+
 
 
         </div>
 
     </main>
-</div>
+
 <%--wrap--%>
 
 <footer>
@@ -126,22 +126,23 @@
 
 
             $.ajax({
-                crossOrigin: false
-                , url: "${path}/api/cs/notice"
+                // crossOrigin: true
+                url: "${path}/api/cs/notice"
                 , type: "POST"
-                , data: JSON.stringify(params)
-                , contentType: "application/json; charset=utf-8"
-                , dataType: "text"
+                , data: JSON.stringify(params)//보내는 데이터
+                , contentType: "application/json; charset=utf-8"//데이터를 보내는 타입
+                , dataType: "json"//데이터를 받아오는 타입(사실상 지금은 필요없음)
                 , success: function (data) {
-                    alert(data + "게시글업로드 완료")
+                    alert(data + "게시글ctr 전달완료")
+                    console.log( JSON.stringify(params)+"success");
                     //data 는 컨트롤러와 통신한 결과값을 담고 있음
                     //현재 출력값 :Ok:게시글업로드 완료
                     <%--location.replace("${path}/cs/notice3")--%>
                 },
                 error: function (data, status, err) {
                     var element = $(document.body);
-
-                    alert(element + "에러ㅠㅠ"+status+this.error);
+                    console.log( JSON.stringify(params)+"error");
+                    alert(element.val()+"에러ㅠㅠ");
                 }
             });
         }

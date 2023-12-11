@@ -30,7 +30,10 @@ public class bdTs0010ACtr {
 
         //파라미터로 가져온 request 파싱작업
         HashMap<String, Object> params = new HashMap<>();
-        String title = req.getParameter("title");
+//        JSONObject jo = new JSONObject(req.getParameter("title"));
+//        System.out.println("JSONOBJECT title : "+jo);
+        String title = req.getParameter("JSON");
+
 
         try{
             //테스트로 parameter 값을 받고 , 아무것도 들어있지 않을시 sql에 error 게시물 업로드 하기
@@ -38,7 +41,7 @@ public class bdTs0010ACtr {
                 params.put("title","error");
                 params.put("ctnt","error");
                 params.put("writer","error");
-
+                System.out.println(title +"= null");
 //            System.out.println(title);
 //             params = Cm.cmRequestToMap(req, model, OP_ID);
 //            for (int i = 0; i < params.size(); i++) {
@@ -47,7 +50,9 @@ public class bdTs0010ACtr {
         }
             if(params ==null){
                 params = new HashMap<>();
-            }params.put("OP_ID",OP_ID);
+                System.out.println(params+" = null");
+                params.put("OP_ID",OP_ID);
+            }
             return svc.ajaxDbTest(params);
         }catch (Exception e){
             e.printStackTrace();
