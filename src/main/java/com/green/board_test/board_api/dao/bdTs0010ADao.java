@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,17 +38,17 @@ public class bdTs0010ADao implements bdTs0010ADaoIF {
 
 
     @Override
-    public List showablePostsList() throws Exception{
-        String targetQueryName="showablePostsList";
+    public List<Object> showablePostsList() throws Exception {
+        String targetQueryName = "showablePostsList";
         List resultList = new ArrayList();
         try {
             resultList = sqlMapClientTemplate.selectList(targetQueryName);
+            System.out.println(resultList.size());
+            System.out.println(resultList.isEmpty());
             return resultList;
-        }catch (Exception e){
-
+        } catch (Exception e) {
             e.printStackTrace();
             return resultList;
         }
-
     }
 }

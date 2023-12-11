@@ -71,9 +71,14 @@ public class bdTs0010ACtr {
         }
     }
 
-    @RequestMapping(value = "/api/cs/notice/view" , method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/api/cs/notice/view", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public String showPost(HttpServletResponse res, Model model)throws Exception{
-        return svc.showPostList();
+    public String showPost(HttpServletResponse res, Model model) throws Exception {
+        String string = svc.showPostList();
+        model.addAttribute("list", string);
+        System.out.println("added attribute on Model :" + string);
+        System.out.println("svcResult length(in Ctr) : " + string.length());
+
+        return string;
     }
 }

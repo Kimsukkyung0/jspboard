@@ -27,19 +27,17 @@ public class bdTs0010ASvc implements bdTs0010ASvcIF{
     };
 
     @Override
-    public String showPostList() throws Exception{
-        try{
-            //랜덤 포스트 리스트 가져오기
-            List rdList = bdTs0010ADao.showablePostsList();
-            //보여줄 수 있는 리스트 중 랜덤포스트넘버
-            Long rdPostNum = (long) (Math.random()* rdList.size())+1;
-            System.out.println(rdPostNum);
-            return rdPostNum.toString();
-        }catch (Exception e){
+    public String showPostList() throws Exception {
+        try {
+            // 랜덤 포스트 리스트 가져오기
+            List<Object> rdList = bdTs0010ADao.showablePostsList();
+            return rdList.toString();
+        } catch (Exception e) {
             e.printStackTrace();
             return "SVC:FAILED";
         }
     }
+
 
 
 }
