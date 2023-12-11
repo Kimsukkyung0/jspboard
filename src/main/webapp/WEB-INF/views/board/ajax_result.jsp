@@ -11,7 +11,7 @@
 <head>
     <title>ajax test 결과</title>
     <meta charset="utf-8" http-equiv="Content-Type" content="text/html;">
-    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="${path}/css/styles.css" />
 <%--    <link rel="stylesheet" type="text/css" href="${path}/css/styles.css" />--%>
 </head>
