@@ -130,8 +130,8 @@
                 url: "${path}/api/cs/notice"
                 , type: "POST"
                 , data: 'JSON='+JSON.stringify(params)//보내는 데이터
-                , contentType: "application/json; charset=utf-8"//데이터를 보내는 타입
-                , dataType: "json"//데이터를 받아오는 타입(사실상 지금은 필요없음)
+                // , contentType: "application/json; charset=utf-8"//데이터를 보내는 타입
+                // , dataType: "json"//데이터를 받아오는 타입(사실상 지금은 필요없음)
                 , success: function (data) {
                     alert(data + "게시글ctr 전달완료")
                     console.log( JSON.stringify(params)+"success");
@@ -140,7 +140,7 @@
                     <%--location.replace("${path}/cs/notice3")--%>
                 },
                 error: function (request, err) {
-                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+err)
+                    // alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+err)
                     alert(element.val()+"에러ㅠㅠ");
                 }
             });

@@ -5,7 +5,7 @@
     <insert id="insBoardPost" parameterType="java.util.HashMap">
         INSERT INTO  jspboard.j_board
         SET title = #{title},
-            ctnt = #{ctnt},
+            ctnt = #{contents},
             writer= #{writer}
     </insert>
 

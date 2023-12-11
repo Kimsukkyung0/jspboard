@@ -6,13 +6,14 @@ header{
     width:100%;
      background-color: gainsboro;
     height: 80px;
+    margin: 0 auto;
 }
 header .header-wrap{
-    width:80%;
+    width:50%;
     height:100%;
     text-align: center;
     display: inline-block;
-    margin: 0 auto;
+    margin-left:40%;
 }
 
 header .header-wrap .page-title{
@@ -20,13 +21,13 @@ header .header-wrap .page-title{
     font-weight: bolder;
     align-items: center;
     vertical-align:middle;
-    margin: 0 auto;
 }
 
 header .title-nav{
     width:500px;
     float:left;
     margin-top: 30px;
+    /*margin-left:30%;*/
     vertical-align:middle;
 
 }
@@ -38,14 +39,16 @@ main {
 
 main .main-wrap{
     height: 250px;
-    width: 90%;
-    margin: 0 auto;
+    width: 50%;
+    margin: 30px auto;
     /*background-color: #0c5460;*/
 }
 main .main-wrap .main_data{
-    width: 50%;
-    margin:0 auto;
+    width: 40%;
+    margin-left:30%;
 }
 main .main-wrap .buttons{
-    margin: 0 auto;
+
+    margin-left:30%;
+    width: 50%;
 }
