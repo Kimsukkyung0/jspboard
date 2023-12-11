@@ -1,13 +1,14 @@
 package com.green.board_test.board_api.dao;
 
-import com.green.model.WritingForm;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 @Repository
@@ -19,19 +20,34 @@ public class bdTs0010ADao implements bdTs0010ADaoIF {
     private SqlSessionTemplate sqlMapClientTemplate;
 
     @Override
-    public String ajaxDbIns(HashMap<String,Object> params) throws Exception{
+    public String ajaxDbIns(HashMap<String,Object> params) throws Exception {
 
         String targetQueryName = "bdTs0010.insBoardPost";
-        HashMap<String,Object> datamap = new HashMap<>();
+        HashMap<String, Object> datamap = new HashMap<>();
 
-        try{
-            sqlMapClientTemplate.insert(targetQueryName,params);
-
-            return "DAO:OK";}
-        catch (Exception e){
+        try {
+            sqlMapClientTemplate.insert(targetQueryName, params);
+            return "DAO:OK";
+        } catch (Exception e) {
             e.printStackTrace();
             return "DAO:FAILED";
         }
+    }
 
-    };
+
+
+    @Override
+    public List showablePostsList() throws Exception{
+        String targetQueryName="showablePostsList";
+        List resultList = new ArrayList();
+        try {
+            resultList = sqlMapClientTemplate.selectList(targetQueryName);
+            return resultList;
+        }catch (Exception e){
+
+            e.printStackTrace();
+            return resultList;
+        }
+
+    }
 }

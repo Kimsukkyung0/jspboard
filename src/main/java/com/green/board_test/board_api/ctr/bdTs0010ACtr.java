@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
 @RestController
@@ -32,16 +33,24 @@ public class bdTs0010ACtr {
         HashMap<String, Object> params = new HashMap<>();
 //        JSONObject jo = new JSONObject(req.getParameter("title"));
 //        System.out.println("JSONOBJECT title : "+jo);
-        String title = req.getParameter("JSON");
+        String json = req.getParameter("JSON");
+
+        String title = req.getParameter("title");
+        String contents = req.getParameter("contents");
+        String writer = req.getParameter("writer");
+
+        System.out.println("json:"+json);
+        System.out.println("title:"+title);
+        System.out.println("ctnt:"+contents);
+        System.out.println("writer:"+writer);
 
 
         try{
-            //테스트로 parameter 값을 받고 , 아무것도 들어있지 않을시 sql에 error 게시물 업로드 하기
+            //테스트로 parameter 값을 받고 , 아무것도 들어있지 않을시 sql에 error 게시물 업로드 하는상황쓰..
             if(title ==null) {
                 params.put("title","error");
                 params.put("ctnt","error");
                 params.put("writer","error");
-                System.out.println(title +"= null");
 //            System.out.println(title);
 //             params = Cm.cmRequestToMap(req, model, OP_ID);
 //            for (int i = 0; i < params.size(); i++) {
@@ -58,5 +67,11 @@ public class bdTs0010ACtr {
             e.printStackTrace();
             return "CTR:FAILED";
         }
+    }
+
+    @RequestMapping(value = "/api/cs/notice/view" , method = {RequestMethod.GET,RequestMethod.POST})
+    @ResponseBody
+    public String showPost(HttpServletResponse res, Model model)throws Exception{
+        return svc.showPostList();
     }
 }

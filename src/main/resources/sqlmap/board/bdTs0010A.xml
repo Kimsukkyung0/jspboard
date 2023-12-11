@@ -22,4 +22,10 @@
         SET hits=+1
         WHERE bd_num=#{bd_num}
     </update>
+
+<!--    등록된 게시글 리스트 리턴-->
+    <select id="showablePostsList" resultType="java.util.ArrayList">
+        select bd_num
+        FROM jspboard.j_board
+    </select>
 </mapper>

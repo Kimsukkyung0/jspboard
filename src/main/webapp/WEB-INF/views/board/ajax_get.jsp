@@ -21,7 +21,7 @@
 
             <table class="title-nav">
                 <tr>
-                    <td><h1 class="page-title">ajax 테스트</h1></td>
+                    <td><h1 class="page-title">ajax-get</h1></td>
                     <td>처음화면</td>
                     <td>글쓰기</td>
                     <td>로그인</td>
@@ -36,37 +36,24 @@
           <form class="main_data" method="post">
                 <table>
                     <thead>
-                    게시판 글쓰기
+                    게시글보기
                     </thead>
                     <tr>
                         <td>제목</td>
-                        <td> <input type="text" name="title" id="title" placeholder="제목을 입력해주세요"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>내용</td>
-                        <td><input type="text" name="contents" id="contents" placeholder="글 적는 란"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>작성자</td>
-                        <td><input type="text" name="writer" id="writer" placeholder="작성자"></td>
+                        <td></td>
                     </tr>
-<%--                    <tr>--%>
-<%--                        <td>작성자이메일</td>--%>
-<%--                        <td><input type="text" name="email"id="mail"></td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>숫자1</td>--%>
-<%--                        <td><input type="number" name="num1"id="num1"></td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td>숫자2</td>--%>
-<%--                        <td><input type="number" name="num2"id="num2"></td>--%>
-<%--                    </tr>--%>
                 </table>
           </form>
                 <div class="buttons">
-                    <button type="submit" id="btn-submit">등록</button>
-                    <button type="reset" id="btn btn-danger" value="취소">취소</button>
+                    <button type="button" id="btn-get">게시글 가져오기</button>
                 </div>
 
 
@@ -78,58 +65,22 @@
 <%--wrap--%>
 
 <footer>
-    <a href="/">form 테스트로 돌아가기</a>
+    <a href="<c:url value="/"/>">form 테스트로 돌아가기</a>
     <p>2023.12.5 게시판</p>
 </footer>
 
 </div>
 
 <script type="text/javascript">
-    $("#btn-submit").on("click",function(){
+    $("#btn-get").on("click",function(){
         //메일형식을 확인하는 정규식
-        var jsTitle = $("#title");
-        var jsContents = $("#contents");
-        var jswriter = $("#writer");
 
-        console.log(jsTitle)
-        console.log(jsContents)
-        console.log(jswriter)
-
-        if(jsTitle.val()==="" || jsTitle.val() ===null){
-            alert("제목을 입력해 주시죠?");
-            jsTitle.focus();
-            return false;
-        }
-        if(jsContents.val()===""|| jsContents.val()===null){
-            alert("내용을 입력해 주시죠?");
-            jsContents.focus();
-            return false;
-        }
-        if(jswriter.val()===""|| jswriter.val()===null){
-            alert("작성자 이름은요?");
-            jswriter.focus();
-            return false;
-        }
-
-
-        if(confirm("json으로 전송하시겠습니가?")) {
-            var params = "";
-            //JSON형식으로 변환하는 작업쓰
-            params = {
-                "title": jsTitle.val()
-                , "contents": jsContents.val()
-                , "writer": jswriter.val()
-            }
-            console.log(params);
-
-            <%--$.callAjax('${path}/api/cs/notice',  params, "post");--%>
-
+        if(confirm("랜덤게시글을 가져오시겠습니까 ?")) {
 
             $.ajax({
                 // crossOrigin: true
-                url: "${path}/api/cs/notice"
-                , type: "POST"
-                , data: 'JSON='+JSON.stringify(params)//보내는 데이터
+                url: "${path}/api/cs/notice/view"
+                , type: "GET"
                 , contentType: "application/json; charset=utf-8"//데이터를 보내는 타입
                 , dataType: "json"//데이터를 받아오는 타입(사실상 지금은 필요없음)
                 , success: function (data) {

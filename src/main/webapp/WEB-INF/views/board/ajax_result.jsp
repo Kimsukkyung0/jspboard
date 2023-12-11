@@ -18,7 +18,7 @@
 <body>
     <%request.setCharacterEncoding("UTF-8");%>
     <%String title = request.getParameter("title");
-        String contents = request.getParameter("ctnt");
+        String contents = request.getParameter("contents");
         String writer = request.getParameter("writer");%>
 
     <table>
