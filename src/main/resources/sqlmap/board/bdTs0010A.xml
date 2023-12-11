@@ -24,7 +24,7 @@
     </update>
 
 <!--    등록된 게시글 리스트 리턴-->
-    <select id="showablePostsList" resultType="java.util.Arrays">
+    <select id="showablePostsList" resultType="java.util.ArrayList">
         select bd_num
         FROM jspboard2.j_board
     </select>
