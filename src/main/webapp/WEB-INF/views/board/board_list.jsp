@@ -43,15 +43,14 @@
                     게시판목록
                     </thead>
                     <tr class="main_table_column">
-                        <td>게시글 번호</td>
+                        <td>번호</td>
                         <td>제목</td>
-                        <td>내용</td>
                         <td>작성자</td>
                         <td>작성일</td>
                         <td>조회수</td>
                     </tr>
-                    <tr class="main_list">
-                    </tr>
+<%--                    <tr class="main_list">--%>
+<%--                    </tr>--%>
 
 
                 </table>
@@ -75,13 +74,22 @@
         , dataType: "json"
         , success: function(data) {
                 console.log(data)
-            var tmp='';
-            $.each(data, function (i,item) {
-                    tmp += '<td>' + data['result'][i].title + '</td>';
-                    // tmp += '<td>' + data[i].title + '</td>';
-                    //제목값만 추출해서 테이블에 추가
-                });
-                $('.main_list').html(tmp)
+            $.each(data.RESULT, function (index,item) {
+               var postPreview=
+                   '<tr><td>'+index+'</td>' +
+                   '<td>'+ item.title+'</td>' +
+                   '<td>'+item.writer+'</td>'+
+                   '<td>'+item.REG_DTM+'</td>'+
+                   '<td>'+item.hits+'</td></tr>';
+                $('.main-wrap table tbody').append(postPreview);
+            });
+
+
+            // $('.main-wrap table:last-child').html(contents);
+            console.log(title)
+            console.log(contents)
+            // $('.main_wrap table').html(contents);
+
             }
         // , fail : function () {
         //         var reload = '<a id="refresh" href="#"';
