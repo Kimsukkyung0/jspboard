@@ -83,9 +83,14 @@ public class bdTs0010ACtr {
 
     @RequestMapping(value = "/api/cs/notice/list", method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
-    public List<HashMap<String,Object>> showPostList(HttpServletResponse res, Model model) throws Exception{
-        List<HashMap<String,Object>> result = svc.showAllPostList();
-        model.addAttribute(result.toString());
-        return result;
+    public Map<String,Object> showPostList(HttpServletRequest req, Model model) throws Exception{
+        String OP_ID = Cm.startCtrMethod(req,getClass().getName());
+
+        try {
+            return Cm.rtnMap("S","",svc.showAllPostList(),OP_ID);
+        }catch(Exception e){
+            return Cm.rtnFalseMap("S",e,OP_ID);
+            //String cd, String msg, Object resultList, String opId
+        }
     }
 }

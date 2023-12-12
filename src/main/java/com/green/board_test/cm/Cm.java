@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.context.MessageSource;
 import org.springframework.ui.Model;
+import ubs.fw.exception.ErrorLogger;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -157,27 +158,55 @@ public class Cm {
         return data;
     }
 
+    public static Map<String, Object> rtnMap(String cd, String msg, Object resultList, String opId) {
+        // CD o 반환코드 참고
+        // CODE o 0000:: 정상처리 , 99XX 시스템 에러 , 나머지 코드 정의 중
+        // MSG o 에러인경우 에러메시지 반환
+        // RESULT o 결과값
+        // opId o 요청 위치
+
+        Map<String, Object> rtMap = new HashMap<String, Object>();
+
+        rtMap.put("CD", cd);
+        rtMap.put("CODE", "0000");
+        rtMap.put("MSG", msg);
+        rtMap.put("OPID", opId);
+        rtMap.put("_ltoken", makeNewLoginToken());
+        if (cd != null && cd.length() > 0 && "S".equals(cd.substring(0, 1))) {
+            rtMap.put("RESULT", resultList);
+        } else {
+            rtMap.put("RESULT", "");
+        }
+        return rtMap;
+    }
+    public static Map<String, Object> rtnFalseMap(String code,Exception e,
+                                                  String opId) {
+        // CD o 반환코드 참고
+        // MSG o 에러인경우 에러메시지 반환
+        // RESULT o 결과값
+        // opId o 요청 위치
+
+        Map<String, Object> rtMap = new HashMap<String, Object>();
+
+        rtMap.put("OPID", opId);
+        rtMap.put("RESULT", "");
+
+        String errMsg = "";
+            rtMap.put("CD", code);
+            rtMap.put("CODE", "에러맵으로 리턴된 결과값입니다");
+            rtMap.put("ERRMSG", "에러입니다");
+            rtMap.put("_ltoken", makeNewLoginToken());
+            errMsg = "에러입니다";
+
+        rtMap.put("MSG", errMsg);
+        return rtMap;
+    }
 
 
 
-//    public static Map<String, Object> toMap(JSONObject jsonObject) throws JSONException {
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        Iterator<String> keys = jsonObject.keys();
-//        while (keys.hasNext()) {
-//            String key = keys.next();
-//            Object value = jsonObject.get(key);
-//            if (value instanceof JSONArray) {
-//                value = toList((JSONArray) value);
-//            } else if (value instanceof JSONObject) {
-//                value = toMap((JSONObject) value);
-//            }
-//            map.put(key, value);
-//        }
-//        return map;
-//    }
-
-
-
+    public static String makeNewLoginToken() {
+        return "FreshiestHomeMadeToken";
+    }
 
 
 }

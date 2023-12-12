@@ -34,6 +34,7 @@ public class bdTs0010Ctr {
 
     @RequestMapping(value = "/cs/notice/list", method = {RequestMethod.POST, RequestMethod.GET})//우선적으로 crud중 c먼저 하기
     public String ShowPostList(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+        //아마 여기서 요청 번호를 줘야겠쥬?
         return "board_list";
     }
 }
