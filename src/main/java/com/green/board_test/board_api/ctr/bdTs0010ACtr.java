@@ -75,7 +75,7 @@ public class bdTs0010ACtr {
     @ResponseBody
     public HashMap<String,Object> showPostDetail(HttpServletResponse res, Model model) throws Exception {
         HashMap<String,Object> result = svc.showPostDetail();
-        model.addAttribute("list", result);
+        model.addAttribute("ctr resultList toString value : ", result.toString());
         System.out.println("added attribute on Model :" + result);
         System.out.println("svcResult length(in Ctr) : " + result);
 
