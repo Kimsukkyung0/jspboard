@@ -19,46 +19,35 @@
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
 <div class="wrap">
-    <header>
-        <div class="header-wrap">
+    <jsp:include page="/WEB-INF/views/header/headerMenu_01.jsp"></jsp:include>
 
-            <table class="title-nav">
-                <tr>
-                    <td><h1 class="page-title">게시글리스트</h1></td>
-                    <td><a href="">처음화면</a></td>
-                    <td><a href="">글쓰기</a></td>
-                    <td>로그인</td>
-                </tr>
-            </table>
-        </div>
-    </header>
+
     <main>
         <div class="main-wrap">
-
-            <%--        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>--%>
-                <table>
-                    <thead>
-                    게시판목록
-                    </thead>
-                    <tr class="main_table_column">
-                        <td>번호</td>
-                        <td>제목</td>
-                        <td>작성자</td>
-                        <td>작성일</td>
-                        <td>조회수</td>
-                    </tr>
-<%--                    <tr class="main_list">--%>
+            <jsp:include page="/WEB-INF/views/body/bodyMain_01.jsp"></jsp:include>
+<%--            &lt;%&ndash;        <jsp:useBean class="com.green.model.WritingForm" id="postForm" scope="page"></jsp:useBean>&ndash;%&gt;--%>
+<%--                <table>--%>
+<%--                    <thead>--%>
+<%--                    게시판목록--%>
+<%--                    </thead>--%>
+<%--                    <tr class="main_table_column">--%>
+<%--                        <td>번호</td>--%>
+<%--                        <td>제목</td>--%>
+<%--                        <td>작성자</td>--%>
+<%--                        <td>작성일</td>--%>
+<%--                        <td>조회수</td>--%>
 <%--                    </tr>--%>
+<%--&lt;%&ndash;                    <tr class="main_list">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    </tr>&ndash;%&gt;--%>
 
 
-                </table>
-            <div class="buttons">
-                <button type="submit" id="btn-prev">뒤루</button>
-<%--                아마 게시글 번호--%>
-                <button type="reset" id="btn-next" >앞으루</button>
-            </div>
+<%--                </table>--%>
+<%--            <div class="buttons">--%>
+<%--                <button type="submit" id="btn-prev">뒤루</button>--%>
+<%--&lt;%&ndash;                아마 게시글 번호&ndash;%&gt;--%>
+<%--                <button type="reset" id="btn-next" >앞으루</button>--%>
+<%--            </div>--%>
 
 
 
@@ -66,41 +55,6 @@
     </main>
 </div>
 
-<script type="text/javascript">
-
-    $.ajax({
-        url: "http://localhost:8090/jspboard_war_exploded/api/cs/notice/list"
-        , type: "GET"
-        , dataType: "json"
-        , success: function(data) {
-                console.log(data)
-            $.each(data.RESULT, function (index,item) {
-               var postPreview=
-                   '<tr><td>'+index+'</td>' +
-                   '<td>'+ item.title+'</td>' +
-                   '<td>'+item.writer+'</td>'+
-                   '<td>'+item.REG_DTM+'</td>'+
-                   '<td>'+item.hits+'</td></tr>';
-                $('.main-wrap table tbody').append(postPreview);
-            });
-
-
-            // $('.main-wrap table:last-child').html(contents);
-            console.log(title)
-            console.log(contents)
-            // $('.main_wrap table').html(contents);
-
-            }
-        // , fail : function () {
-        //         var reload = '<a id="refresh" href="#"';
-        //         reload += '<div><img src="https://us.123rf.com/450wm/foxroar/foxroar1606/foxroar160600250/58011676-%EC%83%88%EB%A1%9C-%EA%B3%A0%EC%B9%A8-%EC%95%84%EC%9D%B4%EC%BD%98.jpg">정보를 로드하지 못했습니다</div>'
-        //         $('.main_list').html(reload);
-        //     }
-
-    });
-
-
-</script>
 
 <%--<script type="text/javascript">--%>
 <%--    $("#btn-get").on("click",function(){--%>
