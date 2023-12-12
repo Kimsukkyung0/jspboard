@@ -5,4 +5,8 @@ import java.util.List;
 
 public interface bdTs0020ADaoIF {
     List<HashMap<String,Object>> showAllPostList();
+
+    List showAllPostList4Pagination(HashMap<String, Object> params);
+
+    int getTotalCnt();
 }

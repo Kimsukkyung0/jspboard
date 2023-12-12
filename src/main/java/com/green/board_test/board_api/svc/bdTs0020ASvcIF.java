@@ -4,5 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface bdTs0020ASvcIF {
-    public List<HashMap<String, Object>> showAllPostList();
+    List<HashMap<String, Object>> showAllPostList();
+
+    HashMap<String, Object> showAllPostList4Pagination(HashMap<String,Object> params);
 }

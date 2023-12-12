@@ -22,6 +22,32 @@ public class bdTs0020ADao implements bdTs0020ADaoIF{
         }
         return resultList;
     }
-    
+
+    @Override
+    public List showAllPostList4Pagination(HashMap<String, Object> params){
+        String targetQuery = "showAllPostList4Pagination";
+        int totalCnt = getTotalCnt();
+        System.out.println(totalCnt);
+        //begin page, endpage 를..계산해야함
+        try{
+//        테스트용 코드 - 주석처리    System.out.println("objects.size() : " +objects.size());
+//            for(Object o : objects) {
+//                System.out.println("objects.get : " + o);
+//            }
+            System.out.println("daoOk");
+
+            return sqlMapClientTemplate.selectList(targetQuery, params);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+
+    }
+
+    @Override
+    public int getTotalCnt(){
+        String targetQuery = "getTotalCnt";
+        return sqlMapClientTemplate.selectOne(targetQuery);
+    }
 
 }
