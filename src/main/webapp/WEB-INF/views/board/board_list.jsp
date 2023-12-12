@@ -73,33 +73,24 @@
         url: "http://localhost:8090/jspboard_war_exploded/api/cs/notice/list"
         , type: "GET"
         , dataType: "json"
-        , success: function(data){
-            console.log(data)
-                    $.each(data,function (i){
-                       var tmp;
-                       tmp +='<td>'+data(i).title+'</td>';
-                        //제목값만 추출해서 테이블에 추가
-                    });
-        }
-    })
+        , success: function(data) {
+                console.log(data)
+            var tmp='';
+            $.each(data, function (i,item) {
+                    tmp += '<td>' + data['result'][i].title + '</td>';
+                    // tmp += '<td>' + data[i].title + '</td>';
+                    //제목값만 추출해서 테이블에 추가
+                });
+                $('.main_list').html(tmp)
+            }
+        // , fail : function () {
+        //         var reload = '<a id="refresh" href="#"';
+        //         reload += '<div><img src="https://us.123rf.com/450wm/foxroar/foxroar1606/foxroar160600250/58011676-%EC%83%88%EB%A1%9C-%EA%B3%A0%EC%B9%A8-%EC%95%84%EC%9D%B4%EC%BD%98.jpg">정보를 로드하지 못했습니다</div>'
+        //         $('.main_list').html(reload);
+        //     }
 
-    <%--var xhr = new XMLHttpRequest();--%>
-    <%--xhr.open("GET",${path}"/api/cs/notice/list");--%>
-    <%--//xmlhttprequest 객체를 생성한다. 근데 이게뭔데--%>
-    <%--xhr.onload = function(){--%>
-    <%--    if(xhr.status==="200"|| xhr.readyState=== XMLHttpRequest.DONE){--%>
-    <%--        //로드가 성공적으로 완료되면, 역직렬화(deserializing 하기)--%>
-    <%--        responseObject = xhr.responseText;--%>
-    <%--        console.log(responseObject)--%>
-    <%--        $.each(data,function (i){--%>
-    <%--           tmp +='<td>'+data(i).title+'</td>'--%>
-    <%--            //제목값만 추출해서 테이블에 추가--%>
-    <%--        });--%>
+    });
 
-    <%--        $('.main_list').append(tmp);--%>
-    <%--    }--%>
-
-    <%--}--%>
 
 </script>
 
