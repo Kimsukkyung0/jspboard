@@ -10,7 +10,7 @@
     </insert>
 
 <!--    게시글 하나 상세보기-->
-    <select id="postView">
+    <select id="showPostDetail" resultType="java.util.HashMap" parameterType="Long">
         SELECT bd_num, title, ctnt, writer, REG_DTM, hits
         FROM  jspboard2.j_board
         WHERE bd_num = #{bd_num}

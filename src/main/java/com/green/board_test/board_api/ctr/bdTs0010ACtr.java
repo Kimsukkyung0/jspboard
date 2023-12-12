@@ -73,12 +73,12 @@ public class bdTs0010ACtr {
 
     @RequestMapping(value = "/api/cs/notice/view", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
-    public String showPost(HttpServletResponse res, Model model) throws Exception {
-        String string = svc.showPostList();
-        model.addAttribute("list", string);
-        System.out.println("added attribute on Model :" + string);
-        System.out.println("svcResult length(in Ctr) : " + string.length());
+    public HashMap<String,Object> showPostDetail(HttpServletResponse res, Model model) throws Exception {
+        HashMap<String,Object> result = svc.showPostDetail();
+        model.addAttribute("list", result);
+        System.out.println("added attribute on Model :" + result);
+        System.out.println("svcResult length(in Ctr) : " + result);
 
-        return string;
+        return result;
     }
 }

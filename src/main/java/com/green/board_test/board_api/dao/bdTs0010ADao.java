@@ -3,12 +3,8 @@ package com.green.board_test.board_api.dao;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-import ubs.fw.exception.ErrorLogger;
 
 import javax.annotation.Resource;
-import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -56,6 +52,18 @@ public class bdTs0010ADao implements bdTs0010ADaoIF {
             return sqlMapClientTemplate.selectList(targetQueryName);
         } catch (Exception e) {
 
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
+    public HashMap<String,Object> showPostDetail(Long bd_num) throws Exception{
+        String targetQueryName = "showPostDetail";
+        try{
+            HashMap<String,Object> result = sqlMapClientTemplate.selectOne(targetQueryName,bd_num);
+            return result;
+        }catch (Exception e){
             e.printStackTrace();
             throw e;
         }

@@ -10,4 +10,7 @@ public interface bdTs0010ADaoIF {
     String ajaxDbIns(HashMap<String,Object> params) throws Exception;
 
     List showablePostsList() throws Exception;
+
+
+    HashMap<String,Object> showPostDetail(Long bd_num) throws Exception;
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,14 +28,21 @@ public class bdTs0010ASvc implements bdTs0010ASvcIF{
     };
 
     @Override
-    public String showPostList() throws Exception {
+    public HashMap<String, Object> showPostDetail() throws Exception {
+
         try {
             // 랜덤 포스트 리스트 가져오기
-            List<Object> rdList = bdTs0010ADao.showablePostsList();
-            return rdList.toString();
+            List<Integer> rdList = bdTs0010ADao.showablePostsList();
+            //포스트 리스트 중 난수 생성
+            int i = (int) (Math.random() * rdList.size()) +1;
+            System.out.println("rdList.get(i) : "+rdList.get(i));
+            //난수에 해당하는 리스트 값 가져오기(db통신)
+
+//            System.out.println("rdPostDetail.toString() : " + rdPostDetail.toString());
+            return bdTs0010ADao.showPostDetail(Long.valueOf(rdList.get(i)));
         } catch (Exception e) {
             e.printStackTrace();
-            return "SVC:FAILED";
+            return new HashMap<>();
         }
     }
 
