@@ -38,7 +38,7 @@
         url: "http://localhost:8090/jspboard_war_exploded/api/cs/notice/list"
         , type: "GET"
         , dataType: "json"
-        // ,contentType
+        , contentType
         , success: function (data) {
             console.log(data)
             $.each(data.RESULT, function (index, item) {
@@ -50,17 +50,8 @@
                     '<td>' + item.hits + '</td></tr>';
                 $('.main-wrap table tbody').append(postPreview);
             });
-
-
-            // $('.main-wrap table:last-child').html(contents);
-            // $('.main_wrap table').html(contents);
-
         }
-        // , fail : function () {
-        //         var reload = '<a id="refresh" href="#"';
-        //         reload += '<div><img src="https://us.123rf.com/450wm/foxroar/foxroar1606/foxroar160600250/58011676-%EC%83%88%EB%A1%9C-%EA%B3%A0%EC%B9%A8-%EC%95%84%EC%9D%B4%EC%BD%98.jpg">정보를 로드하지 못했습니다</div>'
-        //         $('.main_list').html(reload);
-        //     }
+
 
     });
 

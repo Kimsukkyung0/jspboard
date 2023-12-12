@@ -22,4 +22,6 @@ public class bdTs0020ADao implements bdTs0020ADaoIF{
         }
         return resultList;
     }
+    
+
 }

@@ -1,6 +1,5 @@
 package com.green.board_test.board_api.ctr;
 
-import com.green.board_test.board_api.svc.bdTs0010ASvc;
 import com.green.board_test.board_api.svc.bdTs0020ASvc;
 import com.green.board_test.cm.Cm;
 import org.springframework.ui.Model;

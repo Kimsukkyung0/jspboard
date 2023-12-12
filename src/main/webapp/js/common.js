@@ -65,3 +65,74 @@ $.callAjax = function(pUrl, pParamData, pType) {
         return text;
     }
 }
+
+/////////////////////////////////////////////////////////////////
+//
+//*  페이지 세팅  *
+//
+//	list : 데이터
+//	pagination : 페이징뷰 영역
+//	pagePrevDetach : < 버튼
+//	pageNextDetach : > 버튼
+//	pageADetach : 페이지 버튼
+//	allCount : 아이템 총개수
+//	limitCount : 한페이지당 개수
+//	page : 현재 페이지 - 0부터
+//
+//	- 해당 페이지의 페이징 영역을 아래와 같이 변경 필요!!
+//	<div class="pagination">
+//		<a href="#" class="p-prev" onclick="return false;">이전</a>
+//		<a href="#" onclick="return false;"></a>
+//		<a href="#" class="p-next" onclick="return false;">다음</a>
+//	</div>
+//
+/////////////////////////////////////////////////////////////////
+function pageSetting(list, pagination, pagePrevDetach, pageNextDetach, pageADetach, allCount, limitCount, page) {
+
+    pagination.empty();
+
+    // 페이지 카운트
+    var pageCount = parseInt(allCount/limitCount) + ((allCount%limitCount != 0) ? 1 : 0);
+
+    // 페이징 정보 세팅
+    var blockSize = 5;
+    var currentPage = parseInt(page) + 1;
+    var firstPage = currentPage - ((currentPage-1)%blockSize);
+    var lastPage = firstPage + (blockSize-1);//마지막 페이지
+    if(lastPage > pageCount){
+        lastPage = pageCount;
+    }
+
+    // 이전 버튼
+    if(firstPage != 1){
+        var prevClone = pagePrevDetach.clone();
+        prevClone.data(list[firstPage-blockSize-1]);
+        prevClone.data('page', firstPage-blockSize-1);
+        pagination.append(prevClone);
+    }
+
+    // 페이지 생성
+    for(var i=firstPage; i<=lastPage; i++){
+        var aClone = pageADetach.clone();
+
+        aClone.text(i);
+        aClone.data('page', i-1);
+        aClone.data(list[i-1]);
+
+        if(page == i-1){
+            pagination.append('<strong>' + (i) + '</strong>');
+        }
+        else{
+            pagination.append(aClone);
+        }
+    }
+
+    // 다음 버튼
+    if(lastPage != pageCount){
+        var nextClone = pageNextDetach.clone();
+        nextClone.data(list[lastPage]);
+        nextClone.data('page', lastPage);
+        pagination.append(nextClone);
+    }
+
+}
