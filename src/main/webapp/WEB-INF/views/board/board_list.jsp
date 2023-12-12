@@ -6,16 +6,20 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+
 <html>
 <head>
     <meta charset="utf-8">
     <title>list</title>
     <meta charset="utf-8" http-equiv="Content-Type" content="text/html;">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="${path}/css/styles.css" />
+<%--    <link rel="stylesheet" type="text/css" href=${path}"/css/styles.css" />--%>
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 <div class="wrap">
     <header>
         <div class="header-wrap">
@@ -38,7 +42,7 @@
                     <thead>
                     게시판목록
                     </thead>
-                    <tr>
+                    <tr class="main_table_column">
                         <td>게시글 번호</td>
                         <td>제목</td>
                         <td>내용</td>
@@ -46,7 +50,7 @@
                         <td>작성일</td>
                         <td>조회수</td>
                     </tr>
-                    <tr>
+                    <tr class="main_list">
                     </tr>
 
 
@@ -63,6 +67,41 @@
     </main>
 </div>
 
+<script type="text/javascript">
+
+    $.ajax({
+        url: "http://localhost:8090/jspboard_war_exploded/api/cs/notice/list"
+        , type: "GET"
+        , dataType: "json"
+        , success: function(data){
+            console.log(data)
+                    $.each(data,function (i){
+                       var tmp;
+                       tmp +='<td>'+data(i).title+'</td>';
+                        //제목값만 추출해서 테이블에 추가
+                    });
+        }
+    })
+
+    <%--var xhr = new XMLHttpRequest();--%>
+    <%--xhr.open("GET",${path}"/api/cs/notice/list");--%>
+    <%--//xmlhttprequest 객체를 생성한다. 근데 이게뭔데--%>
+    <%--xhr.onload = function(){--%>
+    <%--    if(xhr.status==="200"|| xhr.readyState=== XMLHttpRequest.DONE){--%>
+    <%--        //로드가 성공적으로 완료되면, 역직렬화(deserializing 하기)--%>
+    <%--        responseObject = xhr.responseText;--%>
+    <%--        console.log(responseObject)--%>
+    <%--        $.each(data,function (i){--%>
+    <%--           tmp +='<td>'+data(i).title+'</td>'--%>
+    <%--            //제목값만 추출해서 테이블에 추가--%>
+    <%--        });--%>
+
+    <%--        $('.main_list').append(tmp);--%>
+    <%--    }--%>
+
+    <%--}--%>
+
+</script>
 
 <%--<script type="text/javascript">--%>
 <%--    $("#btn-get").on("click",function(){--%>
