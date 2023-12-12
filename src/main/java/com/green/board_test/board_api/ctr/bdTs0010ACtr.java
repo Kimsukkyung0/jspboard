@@ -75,10 +75,8 @@ public class bdTs0010ACtr {
     @ResponseBody
     public HashMap<String,Object> showPostDetail(HttpServletResponse res, Model model) throws Exception {
         HashMap<String,Object> result = svc.showPostDetail();
+        //모델을 통해 view 와 통신, 데이터를 날려줄 수 있다.
         model.addAttribute("ctr resultList toString value : ", result.toString());
-        System.out.println("added attribute on Model :" + result);
-        System.out.println("svcResult length(in Ctr) : " + result);
-
         return result;
     }
 }

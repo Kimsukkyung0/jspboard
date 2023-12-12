@@ -17,7 +17,7 @@
     </select>
 
 <!--    조회수 업데이트-->
-    <update id="updateHits">
+    <update id="updateHits" parameterType="Long">
         UPDATE jspboard2.j_board
         SET hits=+1
         WHERE bd_num=#{bd_num}

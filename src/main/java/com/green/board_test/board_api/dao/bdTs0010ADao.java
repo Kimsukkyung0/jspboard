@@ -3,6 +3,7 @@ package com.green.board_test.board_api.dao;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -58,10 +59,16 @@ public class bdTs0010ADao implements bdTs0010ADaoIF {
     }
 
     @Override
+    @Transactional
     public HashMap<String,Object> showPostDetail(Long bd_num) throws Exception{
         String targetQueryName = "showPostDetail";
+        String upHitsQuery = "updateHits";
         try{
+            //게시글 디테일 조회
             HashMap<String,Object> result = sqlMapClientTemplate.selectOne(targetQueryName,bd_num);
+            //조회수 올리기
+            sqlMapClientTemplate.update(upHitsQuery,bd_num);
+
             return result;
         }catch (Exception e){
             e.printStackTrace();
