@@ -8,11 +8,16 @@
         ORDER BY REG_DTM desc
     </select>
 
-    <select id="showAllPostList4Pagination" resultType="java.util.HashMap" par>
+    <select id="showAllPostList4Pagination" resultType="java.util.HashMap" parameterType="java.util.HashMap">
         select bd_num, title, writer, DATE_FORMAT(REG_DTM,'%Y-%m-%d') as REG_DTM, hits
         FROM jspboard2.j_board
         ORDER BY REG_DTM desc
         LIMIT #{beginPage},#{endPage}
+    </select>
+
+    <select id="getTotalCnt" resultType="int">
+        select COUNT(bd_num)
+        FROM jspboard2.j_board
     </select>
 </mapper>
 
