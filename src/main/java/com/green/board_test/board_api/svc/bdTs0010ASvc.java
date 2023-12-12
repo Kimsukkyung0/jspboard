@@ -43,11 +43,4 @@ public class bdTs0010ASvc implements bdTs0010ASvcIF{
             throw e;
         }
     }
-
-    @Override
-  public List<HashMap<String, Object>> showAllPostList(){
-        return bdTs0010ADao.showAllPostList();
-  }
-
-
 }

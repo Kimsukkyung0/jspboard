@@ -9,5 +9,4 @@ public interface bdTs0010ASvcIF {
 
     HashMap<String, Object> showPostDetail() throws Exception;
 
-    List<HashMap<String, Object>> showAllPostList();
 }

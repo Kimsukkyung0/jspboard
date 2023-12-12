@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @Repository
-@Qualifier("odCc0010Dao")
+@Qualifier("bdTs0010ADao")
 public class bdTs0010ADao implements bdTs0010ADaoIF {
 
 //    @Resource(name = "errorLogger")
@@ -76,14 +76,4 @@ public class bdTs0010ADao implements bdTs0010ADaoIF {
         }
     }
 
-    @Override
-    public List<HashMap<String,Object>> showAllPostList() {
-        String targetQuery = "showAllPostList";
-        List<HashMap<String,Object>> resultList = sqlMapClientTemplate.selectList(targetQuery);
-        System.out.println("resultList.size()" + resultList.size());
-        for(HashMap<String,Object> val : resultList){
-            System.out.println("resultList -val : "+val);
-        }
-        return resultList;
-    }
 }
