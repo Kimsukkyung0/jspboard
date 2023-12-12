@@ -32,4 +32,8 @@ public class bdTs0010Ctr {
         return "ajax_result";
     }
 
+    @RequestMapping(value = "/cs/notice/list", method = {RequestMethod.POST, RequestMethod.GET})//우선적으로 crud중 c먼저 하기
+    public String ShowPostList(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+        return "board_list";
+    }
 }

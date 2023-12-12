@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -77,6 +78,14 @@ public class bdTs0010ACtr {
         HashMap<String,Object> result = svc.showPostDetail();
         //모델을 통해 view 와 통신, 데이터를 날려줄 수 있다.
         model.addAttribute("ctr resultList toString value : ", result.toString());
+        return result;
+    }
+
+    @RequestMapping(value = "/api/cs/notice/list", method = {RequestMethod.GET,RequestMethod.POST})
+    @ResponseBody
+    public List<HashMap<String,Object>> showPostList(HttpServletResponse res, Model model) throws Exception{
+        List<HashMap<String,Object>> result = svc.showAllPostList();
+        model.addAttribute(result.toString());
         return result;
     }
 }

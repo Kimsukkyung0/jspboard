@@ -4,8 +4,6 @@ import com.green.board_test.board_api.dao.bdTs0010ADaoIF;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,10 +40,14 @@ public class bdTs0010ASvc implements bdTs0010ASvcIF{
             return bdTs0010ADao.showPostDetail(Long.valueOf(rdList.get(i)));
         } catch (Exception e) {
             e.printStackTrace();
-            return new HashMap<>();
+            throw e;
         }
     }
 
+    @Override
+  public List<HashMap<String, Object>> showAllPostList(){
+        return bdTs0010ADao.showAllPostList();
+  }
 
 
 }

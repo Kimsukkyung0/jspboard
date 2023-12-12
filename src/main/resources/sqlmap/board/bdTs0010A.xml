@@ -28,4 +28,9 @@
         select bd_num
         FROM jspboard2.j_board
     </select>
+
+    <select id="showAllPostList" resultType="java.util.HashMap">
+        select title, writer, DATE_FORMAT(REG_DTM,'%Y-%m-%d') as REG_DTM, hits
+        FROM jspboard2.j_board
+    </select>
 </mapper>

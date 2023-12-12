@@ -13,4 +13,6 @@ public interface bdTs0010ADaoIF {
 
 
     HashMap<String,Object> showPostDetail(Long bd_num) throws Exception;
+
+    List<HashMap<String,Object>> showAllPostList();
 }
