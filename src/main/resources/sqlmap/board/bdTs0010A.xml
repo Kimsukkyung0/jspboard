@@ -32,5 +32,6 @@
     <select id="showAllPostList" resultType="java.util.HashMap">
         select bd_num, title, writer, DATE_FORMAT(REG_DTM,'%Y-%m-%d') as REG_DTM, hits
         FROM jspboard2.j_board
+        ORDER BY REG_DTM desc
     </select>
 </mapper>

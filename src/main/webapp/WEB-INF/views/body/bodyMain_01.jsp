@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-
 <html>
 <table>
     <thead>
@@ -54,8 +53,6 @@
 
 
             // $('.main-wrap table:last-child').html(contents);
-            console.log(title)
-            console.log(contents)
             // $('.main_wrap table').html(contents);
 
         }

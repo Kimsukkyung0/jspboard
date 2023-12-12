@@ -1,0 +1,33 @@
+.wrap{
+    width: 100%;
+}
+
+header{
+    width:100%;
+    background-color: gainsboro;
+    height: 80px;
+    margin: 0 auto;
+}
+header .header-wrap{
+    width:50%;
+    height:100%;
+    text-align: center;
+    display: inline-block;
+    margin-left:34%;
+}
+
+header .header-wrap .page-title{
+    font-size:25px;
+    font-weight: bolder;
+    align-items: center;
+    vertical-align:middle;
+}
+
+header .title-nav{
+    width:500px;
+    float:left;
+    margin-top: 30px;
+    /*margin-left:30%;*/
+    vertical-align:middle;
+
+}
