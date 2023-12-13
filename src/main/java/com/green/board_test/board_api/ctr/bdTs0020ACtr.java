@@ -29,11 +29,17 @@ public class bdTs0020ACtr {
         }
     }
 
-    @RequestMapping(value="/api/cs/notice/{page}")
+    @RequestMapping(value="/api/cs/notice/page",method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
     public HashMap<String, Object> showAllPostList4Pagination(HttpServletRequest req,Model model){
         HashMap<String,Object> params = new HashMap<>();
-        req.getParameter("JSON");
+
+        if(req.getParameter("JSON")!=null){
+            String receivedData = req.getParameter("JSON");
+            System.out.println(receivedData);
+        }else {
+            System.out.println("jsp>ctr 에러");
+        }
         //분해해서 표출페이지 개수 현재페이지 값 받기
         return svc.showAllPostList4Pagination(params);
     }

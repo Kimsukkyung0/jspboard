@@ -26,17 +26,13 @@ public class bdTs0020ADao implements bdTs0020ADaoIF{
     @Override
     public List showAllPostList4Pagination(HashMap<String, Object> params){
         String targetQuery = "showAllPostList4Pagination";
-        int totalCnt = getTotalCnt();
-        System.out.println(totalCnt);
-        //begin page, endpage 를..계산해야함
         try{
-//        테스트용 코드 - 주석처리    System.out.println("objects.size() : " +objects.size());
+            return sqlMapClientTemplate.selectList(targetQuery, params);
+
+            //        테스트용 코드 - 주석처리    System.out.println("objects.size() : " +objects.size());
 //            for(Object o : objects) {
 //                System.out.println("objects.get : " + o);
 //            }
-            System.out.println("daoOk");
-
-            return sqlMapClientTemplate.selectList(targetQuery, params);
         }catch (Exception e){
             e.printStackTrace();
             throw e;
@@ -44,6 +40,7 @@ public class bdTs0020ADao implements bdTs0020ADaoIF{
 
     }
 
+    //총 페이지 갯수를 구하기 위한 메서드생성
     @Override
     public int getTotalCnt(){
         String targetQuery = "getTotalCnt";
