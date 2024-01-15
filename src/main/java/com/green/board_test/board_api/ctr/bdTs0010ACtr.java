@@ -4,6 +4,7 @@ package com.green.board_test.board_api.ctr;
 import com.google.gson.Gson;
 import com.green.board_test.board_api.svc.bdTs0010ASvc;
 import com.green.board_test.cm.Cm;
+import com.green.configs.Utils.JangHmac;
 import org.json.JSONObject;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,6 +82,20 @@ public class bdTs0010ACtr {
         //모델을 통해 view 와 통신, 데이터를 날려줄 수 있다.
         model.addAttribute("ctr resultList toString value : ", result.toString());
         return result;
+    }
+
+
+    @RequestMapping(value = "/api/jmac", method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseBody
+    public String jmac(HttpServletResponse res, Model model) throws Exception {
+        JangHmac jh = new JangHmac();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        Calendar c1 = Calendar.getInstance();
+        String strToday = sdf.format(c1.getTime());
+        String _ctCode = "650780";	// 거래처 코드(업체 고객코드)
+        String _date = strToday;			//
+
+        return jh.hamc(_date+_ctCode);
     }
 
 }

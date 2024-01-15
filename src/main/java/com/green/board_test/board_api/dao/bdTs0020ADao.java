@@ -37,7 +37,6 @@ public class bdTs0020ADao implements bdTs0020ADaoIF{
             e.printStackTrace();
             throw e;
         }
-
     }
 
     //총 페이지 갯수를 구하기 위한 메서드생성
