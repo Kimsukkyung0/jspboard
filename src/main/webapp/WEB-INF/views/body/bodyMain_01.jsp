@@ -65,4 +65,73 @@
     });
 
 
+    	/////////////////////////////////세션타이머 테스트/////////////////////
+	var setTimeOffsetBetweenServerAndClient = function(){
+		console.log('-----------------------------')
+		var latestTouch = getCookie('latestTouch');
+		//쿠키 얻어오는 값
+		console.log('latestTouch : ',latestTouch)
+		latestTouch = latestTouch==null ? null : Math.abs(latestTouch);
+
+		console.log('clientTime : ',clientTime)
+		var clientTime = (new Date()).getTime();
+		var clientTimeOffset = clientTime - latestTouch;
+		setCookie('clientTimeOffset', clientTimeOffset);
+		console.log('-----------------------------')
+	}
+
+	var isSessionExpired= function(offset){
+		//절대수 리턴하는 함수(math.abs)
+		console.log('====================================================')
+		var sessionExpiry = Math.abs(getCookie('sessionExpiry'));
+		console.log('sessionExpiry : ',sessionExpiry)
+		var timeOffset = Math.abs(getCookie('sessionExpiry'));
+		console.log('timeOffset : ', timeOffset)
+		var localTime = (new Date()).getTime();
+		console.log('localTime : ',localTime)
+		setCookie('remainTime', (sessionExpiry - (localTime - timeOffset)));
+		console.log('remainTime : ',sessionExpiry - (localTime - timeOffset))
+		console.log('====================================================')
+		return localTime - timeOffset > (sessionExpiry-(offset||0));
+	}
+
+
+
+
+	function checkSessionExpired(){
+		var isExpired = isSessionExpired(-5*1000);	//세션만료예정시간을 5초 앞당겨서 검사
+		if(isExpired === true){
+			alert('Session Expired. Please login.');
+			goLogin();
+		}else{
+			setTimeout('checkSessionExpired()', 30*1000);	//30초에 한번씩 티이머 반복
+		}
+	}
+
+	function goLogin(){
+		location.href = '/cu/loginCustomer';
+	}
+
+
+	/////////////////////////////////세션타이머 테스트/////////////////////
+
+        //////getcookie (common.js)
+    function getCookie( name ) {  
+	var nameOfCookie = name + "=";  
+	var x = 0;  
+	while ( x <= document.cookie.length )  
+	{  
+	    var y = (x+nameOfCookie.length);  
+	    if ( document.cookie.substring( x, y ) == nameOfCookie ) {  
+	        if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )  
+	            endOfCookie = document.cookie.length;  
+	        return unescape( document.cookie.substring( y, endOfCookie ) );  
+	    }  
+	    x = document.cookie.indexOf( " ", x ) + 1;  
+	    if ( x == 0 )  
+	        break;  
+	}  
+	return "";  
+}  
+
 </script>

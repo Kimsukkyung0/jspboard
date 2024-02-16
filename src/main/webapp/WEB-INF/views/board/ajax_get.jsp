@@ -88,7 +88,7 @@
                     console.log( JSON.stringify(params)+"success");
                     //data 는 컨트롤러와 통신한 결과값을 담고 있음
                     //현재 출력값 :Ok:게시글업로드 완료
-                    <%--location.replace("${path}/cs/notice3")--%>
+                    //<%--location.replace("${path}/cs/notice3")--%>
                 },
                 error: function (data, status, err) {
                     var element = $(document.body);
