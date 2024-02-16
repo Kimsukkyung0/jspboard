@@ -92,10 +92,9 @@ public class bdTs0010ACtr {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         Calendar c1 = Calendar.getInstance();
         String strToday = sdf.format(c1.getTime());
-        String _ctCode = "650780";	// 거래처 코드(업체 고객코드)
+        String _ctCode = "405009";	// 거래처 코드(업체 고객코드)
         String _date = strToday;			//
 
         return jh.hamc(_date+_ctCode);
     }
-
 }
