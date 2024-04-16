@@ -12,6 +12,12 @@ public class DecryptCtr {
     @ResponseBody
     public String decMsgFromApi(HttpServletRequest req, Model model) throws Exception {
 
+        int x = 1;
+        int y = 10;
+
+        int result = (x > y) ? x : y;
+        System.out.println("result : "+result);
+
         return "board_list";
     }
 }
